@@ -1,10 +1,7 @@
 @extends('bootmodel')
 @section('head')
     <link rel="stylesheet" href="/css/index.css">
-<<<<<<< HEAD
-=======
     <link rel="stylesheet" href="/css/y-index.css">
->>>>>>> a834791b12e41dc0acf5b98e6d119d0ad9a2dae6
     <script src="/js/jquery-1.8.3.min.js"></script>
     <script>
         $(function(){
@@ -40,11 +37,7 @@
 
             });
             $('#iad').click(function(){
-<<<<<<< HEAD
                 $('#addComic').slideToggle();
-=======
-                 $('#addComic').slideToggle();
->>>>>>> a834791b12e41dc0acf5b98e6d119d0ad9a2dae6
             });
             $('#c-left').click(function(){
                 $('#addcontent').css('display','block');
@@ -75,7 +68,6 @@
                 $('#c-center').css({'border-bottom':'','border-top':''});
                 $('#c-right').css({'border-bottom':'none','border-top':'3px solid #FFA700'});
             });
-<<<<<<< HEAD
                 $('#addcontent').css('display','block');
                 $('#addtxt').css('display','none');
                 $('#left-t').html('漫画上传');
@@ -85,7 +77,6 @@
                 $('#c-left').css({'border-bottom':'none','border-top':'3px solid #FFA700'});
                 $('#c-center').css({'border-bottom':'','border-top':''});
                 $('#c-right').css({'border-bottom':'','border-top':''});
-=======
             $('.logintxt').click(function() {
                 $('#bodyContent').show();
                 $('#bodycolor').addClass('bodycolor');
@@ -155,15 +146,11 @@
                     dataType:'json'
                 });
             });
-
->>>>>>> a834791b12e41dc0acf5b98e6d119d0ad9a2dae6
         })
     </script>
 @endsection
 @yield('heads')
 @section('body')
-<<<<<<< HEAD
-=======
     <div id="bodyContent" class="container login {{$show}}" ><img src="/images/dbz.png" alt="">
         <div class="sing">
             <div class="sing-left tit-left">
@@ -236,7 +223,6 @@
 
 
     </div>
->>>>>>> a834791b12e41dc0acf5b98e6d119d0ad9a2dae6
 <!--顶导-->
     <div class="container top-nav">
         <ul>
@@ -247,10 +233,6 @@
             <li><a href="">游戏中心</a></li>
         </ul>
         <div  class="top-right">
-<<<<<<< HEAD
-            <a href="home/user/myzone"><div class="glyphicon glyphicon-user">用户名</div></a>
-            <a href=""><div class="glyphicon glyphicon-envelope"></div></a>
-=======
             @if(Auth::check())
             <a href="/home/user/c-index"><div  class="glyphicon glyphicon-user">{{Auth::user()->name}}</div></a>
             <a href="/home/user/logingout"><div class="glyphicon ">注销</div></a>
@@ -258,7 +240,6 @@
             <a href="javascript:void(0)"><div  class="logintxt">登录</div></a>
             <a href="javascript:void(0)"><div class="registtxt">注册</div></a>
             @endif
->>>>>>> a834791b12e41dc0acf5b98e6d119d0ad9a2dae6
         </div>
     </div>
 <!--顶导-->
@@ -295,10 +276,6 @@
 
         </div>
         <div id='top-ld' class="top-right">
-<<<<<<< HEAD
-            <a href="home/user/myzone"><div class="glyphicon glyphicon-user">用户名</div></a>
-            <a href=""><div class="glyphicon glyphicon-envelope"></div></a>
-=======
             @if(Auth::check())
                 <a href="/home/user/c-index"><div  class="glyphicon glyphicon-user">{{Auth::user()->name}}</div></a>
                 <a href="/home/user/logingout"><div class="glyphicon ">注销</div></a>
@@ -306,7 +283,6 @@
                 <a href="javascript:void(0)"><div  class="logintxt">登录</div></a>
                 <a href="javascript:void(0)"><div class="registtxt">注册</div></a>
             @endif
->>>>>>> a834791b12e41dc0acf5b98e6d119d0ad9a2dae6
         </div><!--/.navbar-collapse -->
     </div>
 </nav>
@@ -372,11 +348,7 @@
 
                 <div class="addcontent" id="addcontent">
                     <div class="content-left">
-<<<<<<< HEAD
                         <a href="/home/user/addcomic" class="left-title" id="left-t">漫画上传</a>
-=======
-                        <a href="/addcomic" class="left-title" id="left-t">漫画上传</a>
->>>>>>> a834791b12e41dc0acf5b98e6d119d0ad9a2dae6
                         <a href="###" class="right-title" id="right-t">漫画制作</a>
                     </div>
                     <div class="content-right">

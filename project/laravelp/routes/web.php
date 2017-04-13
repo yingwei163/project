@@ -10,29 +10,14 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-<<<<<<< HEAD
-
-Route::get('/','Home\User\UserController@index');
-
-Route::group(['prefix'=>'home'],function(){
-   Route::group(['prefix'=>'user','namespace'=>'Home\User'],function(){
-       Route::get('myzone','UserController@myzone');
-       Route::get('addgod','UserController@addgod');
-       Route::get('addcomic','UserController@addcomic');
-   });
-});
-
-
-
 //后台
 Route::group(['prefix'=>'admin'],function(){
     Route::group(['prefix'=>'user','namespace'=>'Admin\User'],function(){
         Route::get('/index','IndexController@index');
-
         Route::get('/login','IndexController@login');
-
         Route::post('/login','IndexController@seteing');
-=======
+    });
+});
 Route::get('/index',function(){
     return view('/index')->with('show','')->with('bodycolor','');
 });
@@ -47,7 +32,9 @@ Route::group(['prefix'=>'home'],function(){
         Route::post('/regist','UserController@regist');
         Route::post('/login','UserController@login');
         Route::post('/loginout','UserController@loginout');
->>>>>>> a834791b12e41dc0acf5b98e6d119d0ad9a2dae6
+        Route::get('myzone','UserController@myzone');
+        Route::get('addgod','UserController@addgod');
+        Route::get('addcomic','UserController@addcomic');
     });
 });
 

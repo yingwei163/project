@@ -2,31 +2,6 @@
 
 namespace App\Http\Controllers\Home\User;
 
-<<<<<<< HEAD
-use App\Model\Home\User\channel;
-use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
-
-class UserController extends Controller
-{
-    //
-    public function index()
-    {
-        return view('index');
-    }
-    public function myzone()
-    {
-        return view('home\user\c-index');
-    }
-    public function addgod()
-    {
-        return view('home\user\addgod');
-    }
-    public function addcomic()
-    {
-        $result=channel::all();
-        return view('home\user\addcomic',compact('result',$result));
-=======
 use App\Http\Requests\Home\UserLogin;
 use App\Http\Requests\Home\UserRegist;
 use App\Model\UserModel;
@@ -65,6 +40,17 @@ class UserController extends Controller
     {
             Auth::logout();
             return redirect('/index');
->>>>>>> a834791b12e41dc0acf5b98e6d119d0ad9a2dae6
+    }
+        public function myzone()
+    {
+        return view('home\user\c-index');
+    }
+    public function addgod()
+    {
+        return view('home\user\addgod');
+    }
+    public function addcomic()
+    {
+        return view('home\user\addcomic');
     }
 }

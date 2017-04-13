@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateChannelsTable extends Migration
+class CreateMybimgTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,14 @@ class CreateChannelsTable extends Migration
      */
     public function up()
     {
-        Schema::create('channels', function (Blueprint $table) {
+        Schema::create('mybimg', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('channel');
-            $table->integer('type');
-            $table->string('img');
-            $table->string('desc');
+            $table->string('userid');
+            $table->string('auditid');
+            $table->string('auditto')->defaule(0);
+            $table->string('bimgx');
+            $table->string('bimgb');
+            $table->string('bimgt');
         });
     }
 
@@ -29,6 +31,6 @@ class CreateChannelsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('channels');
+        Schema::dropIfExists('mybimg');
     }
 }

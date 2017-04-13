@@ -35,8 +35,13 @@
         </div>
 
         <div id='top-ld' class="top-right clearfix">
-            <a href="/MyZone"><div class="glyphicon glyphicon-user">用户名</div></a>
-            <a href=""><div class="glyphicon glyphicon-envelope"></div></a>
+            @if(Auth::check())
+                <a href="/home/user/c-index"><div  class="glyphicon glyphicon-user">{{Auth::user()->name}}</div></a>
+                <a href="/home/user/logingout"><div class="glyphicon ">注销</div></a>
+            @else
+                <a href="javascript:void(0)"><div  class="logintxt">登录</div></a>
+                <a href="javascript:void(0)"><div class="registtxt">注册</div></a>
+            @endif
         </div><!--/.navbar-collapse -->
     </div>
 </nav>
@@ -46,15 +51,8 @@
         <strong>频道 (可选):</strong>
         <select class="works-select" name="" id="" >
             <option value="0">请选择频道</option>
-<<<<<<< HEAD
-            @foreach($result as $channel)
-                <option value="{{$channel->id}}">{{$channel->channel}}</option>
-            @endforeach
-=======
-            <option value="1">暴走漫画</option>
-            <option value="2">GIF怪兽</option>
-            <option value="3">神吐槽</option>
->>>>>>> a834791b12e41dc0acf5b98e6d119d0ad9a2dae6
+            <option value="1">暴漫</option>
+            <option value="2">趣图</option>
         </select>
     </div>
     <div class="wrapper-txt">
