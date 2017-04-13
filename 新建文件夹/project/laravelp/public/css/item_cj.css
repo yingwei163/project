@@ -1,0 +1,41 @@
+
+
+.body_cj{background-color:#F6F6F6}
+.header{width:100%;height:40px;}
+.user_banner{width:100%;height:300px;}
+.protect_tag{width:1040px;height:223px;margin-left:auto;margin-right:auto;
+    background-repeat: no-repeat;border-radius:6px}
+.relation{width:1040px;height:60px;margin-left:auto;margin-right:auto;
+    background-color:white;border-radius:3px}
+.relation>a{;display: block;text-align:center;float: left;width:100px;height:60px;font-size:15px;margin-top:12px;color:black;}
+.relation>a:hover{color:#FFAF00;}
+.input_text{width:410px;margin-top:10px;height:37px;border-radius:3px;float:left;margin-left:10px;margin-top:8px;}
+.relation ul li{width:60px;height:38px;float:left;text-align: center;margin-left:5px;margin-top:8px;}
+.relation p{color:#B4B4B4;} .relation ul li a{text-decoration:none;}
+.relation ul li a:hover{color:#FFAF00;}
+.circular{border-radius:100px;border:5px solid white;height:140px;width:140px;position:relative;
+left:38px;top:80px;box-shadow:1px 1px 5px 0px #8c8c8c;z-index:3;}
+.img-cj{width:130px;height:130px;}
+.user_circular{width:220px;height:38px;z-index:2;}
+.userTitleName{padding-left:30px;height:36px;line-height:36px;color:#FFAF00;font-size:18px;background-color:white;border-radius:30px;box-shadow:1px 1px 5px 0px #8c8c8c;
+    left:160px;position:relative;display:block;text-align:center;}
+.wrapper-cj{margin-top:10px;width:1040px;margin-left:auto;margin-right:auto;height: 919px;}
+.wrapper-left,.wrapper-center{border-radius:8px;float:left;box-shadow:1px 1px 3px 0px #8c8c8c;}
+.wrapper-left{width:126px;height:369px;background-color:white;padding:10px 0px;}
+.wLeft-list li{width:150px;height:41px;}
+.wLeft-list li a{font-size:16px;width:96px;height:21px;padding:10px 20px;color:black;}
+.wLeft-list li a:hover{color:#FFAF00;}
+.wrapper-center{width:620px;height:100%;margin:0px 20px;background-color:white;}
+.user-nodata{width:620px;height:403px;background-color:white;}
+.user-flaunt{width:620px;height:21px;text-align:center;font-size:18px;color:#ccc;line-height:403px;}
+.wrapper-right{width:250px;height:919px;border-radius:8px;float:left;}
+.right-body{width:248px;height:128px;padding:15px 20px 0px;background-color:white;border-radius:3px;box-shadow:1px 1px 3px 0px #8c8c8c;}
+.right-body p{text-align:center;}
+.publish{border-radius:0px 0px 6px 6px;width:249px;height:30px;background-color:#FFAF00;margin-top:-3px;text-align:center;
+    line-height:30px;color:white;font-size:16px;}
+.publish:hover{background-color:#FFCE5D;cursor:pointer;}
+
+.add-god{width:620px;height:383px;background-color:white;padding:20px;}
+.godtitle{text-align:center;font-size:22px;margin:20px 0px;}
+.goderror{color:#E22222;font-size:13px;margin-bottom:20px;}
+

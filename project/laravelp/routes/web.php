@@ -10,6 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+<<<<<<< HEAD
 
 Route::get('/','Home\User\UserController@index');
 
@@ -31,6 +32,22 @@ Route::group(['prefix'=>'admin'],function(){
         Route::get('/login','IndexController@login');
 
         Route::post('/login','IndexController@seteing');
+=======
+Route::get('/index',function(){
+    return view('/index')->with('show','')->with('bodycolor','');
+});
+Route::get('/index/{show?}/{bodycolor?}', function ($show='',$bodycolor='') {
+    return view('index')->with('show',$show)->with('bodycolor',$bodycolor);
+});
+
+Route::group(['prefix'=>'home'],function(){
+    Route::group(['prefix'=>'user','namespace'=>'Home\User'],function(){
+        Route::get('/c-index', function () {return view('home/user/c-index');});
+        Route::get('/login',function(){return view('home/user/login');});
+        Route::post('/regist','UserController@regist');
+        Route::post('/login','UserController@login');
+        Route::post('/loginout','UserController@loginout');
+>>>>>>> a834791b12e41dc0acf5b98e6d119d0ad9a2dae6
     });
 });
 

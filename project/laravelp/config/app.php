@@ -177,6 +177,10 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+<<<<<<< HEAD
+=======
+        Mews\Captcha\CaptchaServiceProvider::class,
+>>>>>>> a834791b12e41dc0acf5b98e6d119d0ad9a2dae6
 
     ],
 
@@ -225,6 +229,10 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+<<<<<<< HEAD
+=======
+        'Captcha' => Mews\Captcha\Facades\Captcha::class,
+>>>>>>> a834791b12e41dc0acf5b98e6d119d0ad9a2dae6
 
     ],
 

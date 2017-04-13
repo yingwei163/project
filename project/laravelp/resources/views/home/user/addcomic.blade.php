@@ -46,9 +46,15 @@
         <strong>频道 (可选):</strong>
         <select class="works-select" name="" id="" >
             <option value="0">请选择频道</option>
+<<<<<<< HEAD
             @foreach($result as $channel)
                 <option value="{{$channel->id}}">{{$channel->channel}}</option>
             @endforeach
+=======
+            <option value="1">暴走漫画</option>
+            <option value="2">GIF怪兽</option>
+            <option value="3">神吐槽</option>
+>>>>>>> a834791b12e41dc0acf5b98e6d119d0ad9a2dae6
         </select>
     </div>
     <div class="wrapper-txt">

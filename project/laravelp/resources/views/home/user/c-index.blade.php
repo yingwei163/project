@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 @extends('index')
+=======
+@extends('master')
+>>>>>>> a834791b12e41dc0acf5b98e6d119d0ad9a2dae6
 @section('heads')
     <link rel="stylesheet" href="/css/item_cj.css">
     <link rel="stylesheet" href="/css/item_index.css">
@@ -112,7 +116,11 @@
                    <p>暂无连载</p>
                </div>
                <div class="publish">
+<<<<<<< HEAD
                    <a href="/home/user/addgod"><p><span class="glyphicon glyphicon-plus">创建连载</span></p></a>
+=======
+                   <a href="/addGod"><p><span class="glyphicon glyphicon-plus">创建连载</span></p></a>
+>>>>>>> a834791b12e41dc0acf5b98e6d119d0ad9a2dae6
                </div>
            </div>
            <div class="user_channel">

@@ -6,8 +6,13 @@
     "type": "project",
     "require": {
         "php": ">=5.6.4",
+<<<<<<< HEAD
         "guzzlehttp/guzzle": "^6.2",
         "laravel/framework": "5.3.*"
+=======
+        "laravel/framework": "5.3.*",
+        "mews/captcha": "^2.1"
+>>>>>>> a834791b12e41dc0acf5b98e6d119d0ad9a2dae6
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

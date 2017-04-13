@@ -1,6 +1,10 @@
 @extends('bootmodel')
 @section('head')
     <link rel="stylesheet" href="/css/index.css">
+<<<<<<< HEAD
+=======
+    <link rel="stylesheet" href="/css/y-index.css">
+>>>>>>> a834791b12e41dc0acf5b98e6d119d0ad9a2dae6
     <script src="/js/jquery-1.8.3.min.js"></script>
     <script>
         $(function(){
@@ -36,7 +40,11 @@
 
             });
             $('#iad').click(function(){
+<<<<<<< HEAD
                 $('#addComic').slideToggle();
+=======
+                 $('#addComic').slideToggle();
+>>>>>>> a834791b12e41dc0acf5b98e6d119d0ad9a2dae6
             });
             $('#c-left').click(function(){
                 $('#addcontent').css('display','block');
@@ -67,6 +75,7 @@
                 $('#c-center').css({'border-bottom':'','border-top':''});
                 $('#c-right').css({'border-bottom':'none','border-top':'3px solid #FFA700'});
             });
+<<<<<<< HEAD
                 $('#addcontent').css('display','block');
                 $('#addtxt').css('display','none');
                 $('#left-t').html('漫画上传');
@@ -76,11 +85,158 @@
                 $('#c-left').css({'border-bottom':'none','border-top':'3px solid #FFA700'});
                 $('#c-center').css({'border-bottom':'','border-top':''});
                 $('#c-right').css({'border-bottom':'','border-top':''});
+=======
+            $('.logintxt').click(function() {
+                $('#bodyContent').show();
+                $('#bodycolor').addClass('bodycolor');
+                $('#bodycolor').click(function(){
+                    $('#lname').html(null);
+                    $('#lpwd').html(null);
+                    $('#bodycolor').removeClass('bodycolor');
+                    $('#bodyContent').hide();
+                })
+            });
+            $('.registtxt').click(function() {
+                $('#bodyContentr').show();
+                $('#bodycolor').addClass('bodycolor');
+                $('#codeup').attr('src','{{ url('/captcha') }}');
+                $('#bodycolor').click(function(){
+                    $('#nameer').html(null);
+                    $('#emailer').html(null);
+                    $('#pwder').html(null);
+                    $('#repwder').html(null);
+                    $('#coder').html(null);
+                    $('form input').val(null);
+                    $('#checkup').val(1);
+                    $('#bodycolor').removeClass('bodycolor');
+                    $('#bodyContentr').hide();
+                })
+            });
+
+            $('#regist').click(function(){
+                $('form').append('{{csrf_field()}}');
+                $.ajax({
+                    url:'{{url('/home/user/regist')}}',
+                    type:'post',
+                    data:$('#register').serialize(),
+                    success:function(data){
+                        location.href = "/index/show/bodycolor"
+                    },
+                    error:function(xhr){
+                        document.write(xhr.responseText);
+                        eval('var obj ='+xhr.responseText);
+                        $('#nameer').html(obj['name']);
+                        $('#emailer').html(obj['email']);
+                        $('#pwder').html(obj['pwd']);
+                        $('#repwder').html(obj['pwd_confirmation']);
+                        $('#coder').html(obj['code']);
+                        if (obj['save']){
+                            alert(obj['save']);}
+                    },
+                    dataType:'json'
+                });
+            });
+            $('#login').click(function(){
+                $('form').append('{{csrf_field()}}');
+                $.ajax({
+                    url:'{{url('/home/user/login')}}',
+                    type:'post',
+                    data:$('#loginer').serialize(),
+                    success:function(data){
+                        location.href = "/index"
+
+                    },
+                    error:function(xhr){
+                        document.write(xhr.responseText);
+                        eval('var obj ='+xhr.responseText);
+                        $('#luser').html(obj['name']);
+                        $('#lpwd').html(obj['pwd']);
+                    },
+                    dataType:'json'
+                });
+            });
+
+>>>>>>> a834791b12e41dc0acf5b98e6d119d0ad9a2dae6
         })
     </script>
 @endsection
 @yield('heads')
 @section('body')
+<<<<<<< HEAD
+=======
+    <div id="bodyContent" class="container login {{$show}}" ><img src="/images/dbz.png" alt="">
+        <div class="sing">
+            <div class="sing-left tit-left">
+                <form action="" id="loginer">
+                    用 户 名: <input name='name' type="text" class="singinput" placeholder="请输入用户名或邮箱" ><br>
+                    <span id="luser" class="success"></span><br>
+                    密 &nbsp;码 : <input name='pwd' type="password" class="singinput" placeholder="请输入密码" ><br>
+                    <span id="lpwd" class="success"></span><br>
+
+                </form><input id='login' type="submit" class="singbtn" value="登陆">
+                &nbsp; &nbsp; &nbsp;&nbsp;其他方式登陆:<br>
+                &nbsp; &nbsp; &nbsp;<img src="/images/any.png" alt="" class="any">
+                <img src="/images/any.png" alt="" class="any">
+                <img src="/images/any.png" alt="" class="any">
+                <img src="/images/any.png" alt="" class="any">
+            </div>
+            <div class="sing-right tit-right">
+                <div class="sing-right-top">
+                    <p>用注册帐号登录后你可以发暴漫,还能跟其他小伙伴聊天发小纸条,有很多好处哦,关注你的偶像,亲~</p>
+                    <img src="/images/yao.png" alt="">
+                </div>
+                <div class="sing-right-bottom">
+                    <p>什么?连暴漫帐号都没有?不怕吃亏?你TM在逗<br><a href="">立刻注册 ></a></p>
+                    <img src="/images/zdw.png" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="bodyContentr" class="container regist"><img src="/images/dbz.png" alt="">
+        <div class="sing">
+            <div class="sing-re-left tit-left">
+                <form id='register' action="" method="post">
+                    {{csrf_field()}}
+                    <span style="color:red">* </span>用 户 名: <input name="name" type="text" class="singinput" placeholder="请输入用户名" ><br>
+                    <span id="nameer" class="success">
+                    </span><br>
+                    <span style="color:red">* </span>邮 &nbsp;箱 : <input name="email" type="email" class="singinput" placeholder="请输入邮箱" ><br>
+                    <span id="emailer" class="success"></span><br>
+                    <span style="color:red">* </span>设置密码: <input name="pwd" type="password" class="singinput" placeholder="请输入密码" ><br>
+                    <span id="pwder" class="success"></span><br>
+                    <span style="color:red">* </span>确认密码: <input name="pwd_confirmation" type="password" class="singinput" placeholder="请确认密码" ><br><span id="repwder" class="success"></span><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span id="codeups" ><img id="codeup" src="{{ url('/captcha') }}" onclick="this.src='{{ url('/captcha') }}?r='+Math.random();" alt=""></span><br>
+                    <span id="repwder" class="success"></span><br>
+                    <span style="color:red">* </span>验 证 码: <input name="code" type="text" class="singinput" placeholder="请输入验证码" ><br>
+                    <span id="coder" class="success"></span><br>
+                    &nbsp; &nbsp;&nbsp;&nbsp;                               <input name="save" type="checkbox" id="checkup" checked value="1" >
+
+                    <span class="success">我已阅读并接受《暴走漫画用户服务协议》</span><br>
+
+                </form><input id='regist' type="submit" class="singbtn" value="注册">
+                &nbsp; &nbsp; &nbsp;&nbsp;其他方式注册:<br>
+                &nbsp; &nbsp; &nbsp;<img src="/images/any.png" alt="" class="any">
+                <img src="/images/any.png" alt="" class="any">
+                <img src="/images/any.png" alt="" class="any">
+                <img src="/images/any.png" alt="" class="any">
+            </div>
+            <div class="sing-right tit-right">
+                <div class="sing-right-top">
+                    <p>用注册帐号登录后你可以发暴漫,还能跟其他小伙伴聊天发小纸条,有很多好处哦,关注你的偶像,亲~</p>
+                    <img src="/images/yao.png" alt="">
+                </div>
+                <div class="sing-right-bottom">
+                    <p>什么?你有帐号还不赶快登录?不怕吃亏？你TM在逗我?<br><a href="">立刻登录 ></a></p>
+                    <img src="/images/zdw.png" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="bodycolor" class="{{$bodycolor}}">
+
+
+    </div>
+>>>>>>> a834791b12e41dc0acf5b98e6d119d0ad9a2dae6
 <!--顶导-->
     <div class="container top-nav">
         <ul>
@@ -91,8 +247,18 @@
             <li><a href="">游戏中心</a></li>
         </ul>
         <div  class="top-right">
+<<<<<<< HEAD
             <a href="home/user/myzone"><div class="glyphicon glyphicon-user">用户名</div></a>
             <a href=""><div class="glyphicon glyphicon-envelope"></div></a>
+=======
+            @if(Auth::check())
+            <a href="/home/user/c-index"><div  class="glyphicon glyphicon-user">{{Auth::user()->name}}</div></a>
+            <a href="/home/user/logingout"><div class="glyphicon ">注销</div></a>
+            @else
+            <a href="javascript:void(0)"><div  class="logintxt">登录</div></a>
+            <a href="javascript:void(0)"><div class="registtxt">注册</div></a>
+            @endif
+>>>>>>> a834791b12e41dc0acf5b98e6d119d0ad9a2dae6
         </div>
     </div>
 <!--顶导-->
@@ -129,8 +295,18 @@
 
         </div>
         <div id='top-ld' class="top-right">
+<<<<<<< HEAD
             <a href="home/user/myzone"><div class="glyphicon glyphicon-user">用户名</div></a>
             <a href=""><div class="glyphicon glyphicon-envelope"></div></a>
+=======
+            @if(Auth::check())
+                <a href="/home/user/c-index"><div  class="glyphicon glyphicon-user">{{Auth::user()->name}}</div></a>
+                <a href="/home/user/logingout"><div class="glyphicon ">注销</div></a>
+            @else
+                <a href="javascript:void(0)"><div  class="logintxt">登录</div></a>
+                <a href="javascript:void(0)"><div class="registtxt">注册</div></a>
+            @endif
+>>>>>>> a834791b12e41dc0acf5b98e6d119d0ad9a2dae6
         </div><!--/.navbar-collapse -->
     </div>
 </nav>
@@ -196,7 +372,11 @@
 
                 <div class="addcontent" id="addcontent">
                     <div class="content-left">
+<<<<<<< HEAD
                         <a href="/home/user/addcomic" class="left-title" id="left-t">漫画上传</a>
+=======
+                        <a href="/addcomic" class="left-title" id="left-t">漫画上传</a>
+>>>>>>> a834791b12e41dc0acf5b98e6d119d0ad9a2dae6
                         <a href="###" class="right-title" id="right-t">漫画制作</a>
                     </div>
                     <div class="content-right">
