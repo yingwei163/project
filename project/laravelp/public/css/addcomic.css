@@ -1,0 +1,50 @@
+body,ol,ul,h1,h2,h3,h4,h5,h6,p,th,td,dl,dd,form,fieldset,legend,input,textarea,select{margin:0;padding:0}
+body{font:12px"宋体","Arial Narrow",HELVETICA;background:#fff;-webkit-text-size-adjust:100%;}
+a{color:#2d374b;text-decoration:none}
+a:hover{color:#cd0200;text-decoration:underline}
+em{font-style:normal}
+li{list-style:none}
+img{border:0;vertical-align:middle}
+table{border-collapse:collapse;border-spacing:0}
+p{word-wrap:break-word}
+/*以上初始化*/
+body{background-color:#F6F6F6;}
+.wrapper{width:1200px;margin-left:auto;margin-right:auto;height:1000px;margin-top:80px;text-align:center;}
+.wrapper-h2{padding-bottom:20px;font:18px "Helvetica Neue", Helvetica, "Microsoft YaHei", "微软雅黑", tahoma, Arial, sans-serif;}
+.works-wrapper{width:1200px;height:68px;border-radius:3px;padding:15px 20px;margin-bottom:15px;text-align:left;background-color:white;}
+.works-wrapper>strong{font-size:18px;}
+.works-select{border-radius:3px;width:320px;height:36px;color:#8c8c8c;}
+.works-select>option{color:#000000;font-size:13px;}
+.wrapper-txt{border-radius:3px;width:1200px;height:1010px;padding:15px 20px;margin-bottom:15px;background-color:white;}
+.wrapper-title{width:1160px;height:33px;margin-top:15px;}
+.wrapper-title>span,.wrapper-title>p,.wrapper-title>input{display:block;float:left;line-height:30px;}
+.wrapper-title>input{width:93px;font-size:18px;}.wrapper-title>span{font-size:16px;}.wrapper-title>p{font-size:12px;color:#ccd0d2;}
+.wrapper-zone{width:1160px;height:872px;padding-bottom:50px;margin-top:30px;}
+.zone-left{width:680px;height:850px;float:left;border-radius:6px;box-shadow:0px 1px 15px rgba(0,0,0,0.2);margin-left:10px;margin-right:20px;}
+.zone-file-p{font-size:50px;color:#ccc;text-align:center;line-height:850px;font-family:Microsoft YaHei;}
+.zone-right{width:437px;height:371px;float:left;}
+.zr-title{width:435px;height:22px;margin-bottom:10px;}
+.title-left{margin-left:5px;display:block;float:left;font-size:18px;font-family:Microsoft YaHei;}.title-right{display:block;float:right;}
+.title-right{font-size:16px;color:#cccccc;margin-top:5px;}
+.zone-right>textarea{height:98px;width:430px;}
+.zone-right>input{height:43px;width:430px;}
+.txt-button{width:437px;height:50px;margin-top:30px;}
+.txt-button>button{margin-top:7px;float:left;}
+/*给子类的trueadd继承使用*/
+.trueadd-desc{width:437px;float:left;}
+.ook{width:437px;height:38px;line-height:38px;padding:3px 5px;color:lightskyblue;font-size:18px;float:left;text-align:left;}
+.prompt{width:437px;float:left;text-align:left;font-size: 18px;border:1px solid #c0c0c0;padding:12px 20px;font-family:'微软雅黑';margin-bottom:16px;}
+.prompt-list{font-size:14px;font-family: 'Raleway', sans-serif;float:left;}
+.prompt-list strong,.prompt-list p{float:left;display:block;}
+.prompt-list li{float:left;display:block;width:437px;height:42px;margin-bottom:20px;font-size:18px;}
+.selgod{width:437px;height:80px;float:left;}
+.conadd{text-decoration:none;}
+.addp{color:#f0ad4e;font-size:18px;text-decoration:none;} .addp:hover{color:#f0ad4e;}
+.andadd{font-size:20px;float:right;}
+.return-index{float:left;font-size:20px;float:left;color:red;}
+
+
+
+
+
+
