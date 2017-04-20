@@ -3,7 +3,7 @@
 @section('leftbody')
 				<div class="span9">
 					<h1>
-						管理员页面
+						权限管理页面
 					</h1>
 					[<a href="{{url('admin/user/attach_add')}}">新增权限</a>]
 					<table class="table table-bordered table-striped">

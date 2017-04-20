@@ -3,7 +3,7 @@
 	<head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
-	<title>Web 2.0 Login Form by Azmind.com</title>
+	<title>暴走漫画后台管理登录</title>
 
 	<!--- CSS --->
 	<link rel="stylesheet" href="/css/admin/css/style.css" type="text/css" />

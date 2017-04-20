@@ -119,10 +119,18 @@
             </form>
         </div>
         <h2>验证邮箱</h2>
+        @if (count($errors))
+            {{$errors->first('email')}}
+        @endif
         <div class="container rename">
-            <form action="">
+            <form action="{{url('/home/user/email')}}" method='post'>
+                {{csrf_field()}}
                 <input type="email" class="form-control"  name="email" value="{{$user->email}}">
-                <input id='rename' type="submit" class="btn btn-warning" value="确认">
+                @if($userinfo->is_confirmed==1)
+                <span>邮箱已经验证成功</span>
+                    @else
+                    <input id='rename' type="submit" class="btn btn-warning" value="确认">
+                @endif
             </form>
         </div>
         <h2>验证手机</h2>
@@ -142,7 +150,7 @@
             性别:<br>
             <select name="sex" id="sexup">
                 <option value="0" <?php $userinfo->sex==0?'selected':'' ?>>男</option>
-                <option value="1">女</option>
+                <option value="1" <?php $userinfo->sex==1?'selected':'' ?>>女</option>
             </select><br>
                 <span id="#sexer"></span><br>
             地区:<br>

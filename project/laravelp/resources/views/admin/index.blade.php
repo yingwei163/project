@@ -3,7 +3,7 @@
 <html lang="en"><!--<![endif]--> 
 	<head>
 		<meta charset="utf-8">
-		<title>Dashboard - Akira</title>
+		<title>暴走漫画后台管理</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link href="/css/admin/css/bootstrap.min.css" rel="stylesheet">
 		<link href="/css/admin/css/bootstrap-responsive.min.css" rel="stylesheet">

@@ -19,7 +19,9 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Rules\In;
 
 header('conetnt-type:text/html;charset=utf8');
 class UserController extends Controller
@@ -49,6 +51,8 @@ class UserController extends Controller
         $info->total='0';
         $info->join='0';
         $info->idea='0';
+        $info->confirmed_code='0';
+        $info->is_confirmed=0;
         $info->save();
         $a='{"bz":1}';
         return  $a;
@@ -58,9 +62,10 @@ class UserController extends Controller
     {
        $re= Auth::attempt(['name'=>$request->input('name'),'password'=>$request->input('pwd')]);
        if ($re){
-           $a='{"bz":1}';
+           $a='1';
        }else{
-           $a='{"bz":0}';
+           $a='0';
+           $request->session()->flash('loginer', '用户名或密码错误请重试');
        }
         return $a;
     }
@@ -158,7 +163,51 @@ class UserController extends Controller
         $request->session()->flash('successfo', '修改基本信息成功');
         return back();
     }
+    public function inemail(Request $request)
+    {
+        $rules=array(
+            'email'=>'required',
+        );
+        $mess=array(
+            'email.required'=>'邮箱名不能为空',
+        );
+        $this->validate($request,$rules,$mess);
+        $id=Auth::id();
+        $user=UserModel::find($id);
+        $view='/home/user/upemail';
+        $confirmed_code=str_random(48);
+        $datas=InforModel::find($id);
+        $datas->confirmed_code=$confirmed_code;
+        $datas->save();
+        $subject='请验证邮箱';
+        $data=['id'=>$id,'confirmed_code'=>$confirmed_code,];
+        //用户信息 视图  邮件名 验证后缀码
+        $this->sendEmail($user,$view,$subject,$data);
 
+        return back();
+    }
+//    public function upemail()
+//    {
+//        return view('/home/user/upemail');
+//    }
+    public function sendEmail($user,$view,$subject,$data)
+    {
+        Mail::send($view, $data, function ($m) use ($subject,$user) {
+            $m->to($user->email)->subject($subject);
+        });
+    }
+    public function emailConfirm($code)
+    {
+        //查询与回传值匹配的用户code
+        $user=InforModel::where('confirmed_code',$code)->first();
+        if (is_null($user)){
+            return redirect('/');
+        }
+        $user->confirmed_code=str_random(10);
+        $user->is_confirmed=1;
+        $user->save();
+       return  redirect('/home/user/usercon');
+    }
  public function addcomic()
     {
         return view('home\user\addcomic');

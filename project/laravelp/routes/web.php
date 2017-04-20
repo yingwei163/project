@@ -44,13 +44,12 @@ Route::get('/index',function(){
 Route::get('/index/{show?}/{bodycolor?}', function ($show='',$bodycolor='') {
     return view('index')->with('show',$show)->with('bodycolor',$bodycolor);
 });
+Route::post('/home/user/regist','Home\User\UserController@regist');
+Route::post('/home/user/login','Home\User\UserController@login');
 
-Route::group(['prefix'=>'home'],function(){
+Route::group(['prefix'=>'home','middleware'=>'homelogin'],function(){
     Route::group(['prefix'=>'user','namespace'=>'Home\User'],function(){
         Route::get('/c-index', 'UserController@userindex');
-        Route::get('/login',function(){return view('home/user/login');});
-        Route::post('/regist','UserController@regist');
-        Route::post('/login','UserController@login');
         Route::get('/loginout','UserController@userloginout');
         Route::get('myzone','UserController@myzone');
         Route::get('addgod','UserController@addgod');
@@ -60,6 +59,9 @@ Route::group(['prefix'=>'home'],function(){
         Route::post('ucnrefile','UserController@ucnrefile');
         Route::get('addr/{upid?}','UserController@addrin');
         Route::post('userinfoup','UserController@infoup');
+        Route::post('/email','UserController@inemail');
+        Route::get('/verify/{confirmed_code}','UserController@emailConfirm');
+//        Route::get('/upemail','UserController@upemail');
         Route::get('/addcomic','UserController@addcomic'); //添加暴漫和趣图（控制器->addcomic方法）
         Route::post('/addrage','UserController@addrage');  //添加的验证（控制器->addrage方法）
         Route::get('/trueadd','UserController@trueadd');  //添加成功后跳转到添加成功页面 (控制器->trueadd)

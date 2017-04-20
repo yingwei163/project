@@ -27,8 +27,9 @@
                     }
                 );
                 $(window).scroll(function (){
-
-                    if($(this).scrollTop() >= 480){
+                    if ($(document).width()>1480){
+                        $('#fallsleftc').removeClass('fallsleftc');
+                    }else if($(this).scrollTop() >= 480 ){
                         $('#fallsleftc').addClass('fallsleftc');
                     }else{
                         $('#fallsleftc').removeClass('fallsleftc');
@@ -87,6 +88,9 @@
                     $('#bodyContent').hide();
                 })
             });
+            $('#bodycolor').click(function(){
+                window.location.replace("{{url('/')}}");
+            })
             $('.registtxt').click(function() {
                 $('#bodyContentr').show();
                 $('#bodycolor').addClass('bodycolor');
@@ -114,7 +118,6 @@
                         location.href = "/index/show/bodycolor"
                     },
                     error:function(xhr){
-                        document.write(xhr.responseText);
                         eval('var obj ='+xhr.responseText);
                         $('#nameer').html(obj['name']);
                         $('#emailer').html(obj['email']);
@@ -134,11 +137,14 @@
                     type:'post',
                     data:$('#loginer').serialize(),
                     success:function(data){
-                        location.href = "/index"
+                        if(data==0){
+                            location.href = "{{url('/index/show/bodycolor')}}";
+                        }else{
+                            location.href ="{{url('/')}}";
+                        }
 
                     },
                     error:function(xhr){
-                        document.write(xhr.responseText);
                         eval('var obj ='+xhr.responseText);
                         $('#luser').html(obj['name']);
                         $('#lpwd').html(obj['pwd']);
@@ -154,6 +160,7 @@
     <div id="bodyContent" class="container login {{$show}}" ><img src="/images/dbz.png" alt="">
         <div class="sing">
             <div class="sing-left tit-left">
+                {{session('loginer')}}
                 <form action="" id="loginer">
                     用 户 名: <input name='name' type="text" class="singinput" placeholder="请输入用户名或邮箱" ><br>
                     <span id="luser" class="success"></span><br>
@@ -225,13 +232,14 @@
     </div>
 <!--顶导-->
     <div class="container top-nav">
-        <ul>
+        <div class="top-left">
+        <ul >
             <li><a href="">关于我们</a></li>
             <li><a href="">客户端</a></li>
             <li><a href="">日报</a></li>
             <li><a href="">周边</a></li>
             <li><a href="">游戏中心</a></li>
-        </ul>
+        </ul></div>
         <div  class="top-right">
             @if(Auth::check())
             <a href="/home/user/c-index"><div  class="glyphicon glyphicon-user">{{Auth::user()->name}}</div></a>
@@ -244,11 +252,12 @@
     </div>
 <!--顶导-->
 <!--顶图-->
-<div class="top-img ">
+    <div class="mrt">
+<div class="top-img mrt">
     <div class=" top-img-l">
         <div  class="logo"><img src="/images/logo.png" alt="" ></div>
     </div>
-</div>
+</div></div>
 <!--顶图-->
 <!--中导航 JQ未添加-->
 <nav id='topnav' class="navbar navbar-inverse mid-nav">
@@ -329,11 +338,19 @@
             <div id="fallsleftc">
             <img src="/images/home-wnm.gif" alt="" width="128" height="106">
             <ul>
+                @if(Auth::check())
                 <li><a id="iad"><span class="glyphicon glyphicon-cog"></span>制作器</a></li>
                 <li><a href=""><span class="glyphicon glyphicon-cog"></span>全部频道</a></li>
                 <li><a href=""><span class="glyphicon glyphicon-cog"></span>全部作者</a></li>
                 <li><a href=""><span class="glyphicon glyphicon-cog"></span>订阅频道</a></li>
                 <li><a href=""><span class="glyphicon glyphicon-cog"></span>关注作者</a></li>
+                    @else
+                    <li><a href="{{url('/index/show/bodycolor')}}"><span class="glyphicon glyphicon-cog"></span>制作器</a></li>
+                    <li><a href="{{url('/index/show/bodycolor')}}"><span class="glyphicon glyphicon-cog"></span>全部频道</a></li>
+                    <li><a href="{{url('/index/show/bodycolor')}}"><span class="glyphicon glyphicon-cog"></span>全部作者</a></li>
+                    <li><a href="{{url('/index/show/bodycolor')}}"><span class="glyphicon glyphicon-cog"></span>订阅频道</a></li>
+                    <li><a href="{{url('/index/show/bodycolor')}}"><span class="glyphicon glyphicon-cog"></span>关注作者</a></li>
+                @endif
             </ul>
             </div>
         </div>
@@ -422,8 +439,8 @@
 </div>
 <!--中全部-->
 @show
-    <div id="footer" class="footmar">
-    <div class="footmar-top">
+    <div id="footer" class="footmar container">
+    <div class="footmar-top container">
         <dl>
             <dt>企业</dt>
             <dd>
