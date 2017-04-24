@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class UpdateUserinfoTable extends Migration
+class CreateZanTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,12 @@ class UpdateUserinfoTable extends Migration
      */
     public function up()
     {
-        Schema::table('userinfo', function (Blueprint $table) {
-            $table->string('confirmed_code');
-            $table->integer('is_confirmed');
+        Schema::create('zan', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('gid');  //作品id
+            $table->string('uid');  //用户id
+            $table->string('good'); //好评
+            $table->string('bad'); //差评
         });
     }
 
@@ -26,8 +29,6 @@ class UpdateUserinfoTable extends Migration
      */
     public function down()
     {
-        Schema::table('userinfo', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('zan');
     }
 }

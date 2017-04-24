@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateMytxtTable extends Migration
+class CreateBimgtalkTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,12 @@ class CreateMytxtTable extends Migration
      */
     public function up()
     {
-        Schema::create('mytxt', function (Blueprint $table) {
+        Schema::create('bimgtalk', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('userid');
-            $table->string('auditid');
-            $table->string('auditto')->defaule(0);
-            $table->string('txtx');
-            $table->string('txtb');
-            $table->string('txtt');
+            $table->timestamps();
+            $table->string('user_id');       //评论的用户id
+            $table->string('work_id');       //评论的作品
+            $table->string('talk_txt');      //评论的内容
         });
     }
 
@@ -31,6 +29,6 @@ class CreateMytxtTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('mytxt');
+        Schema::dropIfExists('bimgtalk');
     }
 }

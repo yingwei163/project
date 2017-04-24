@@ -269,11 +269,13 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a id='mid-a1' class="navbar-brand" href="/">首页</a>
-            <a id='mid-a' class="navbar-brand" href="#">暴漫</a>
-            <a id='mid-a' class="navbar-brand" href="#">趣图</a>
-            <a id='mid-a' class="navbar-brand" href="#">视频</a>
-            <a id='mid-a' class="navbar-brand" href="#">文字</a>
+            @section('shou')
+            @foreach($sort as $k)
+
+                <a id='mid-a' class="navbar-brand" href="{{url($k->url)}}">{{$k->name}}</a>
+
+                    @endforeach
+            @show
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <form class="navbar-form navbar-right">

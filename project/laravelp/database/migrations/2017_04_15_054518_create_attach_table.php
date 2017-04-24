@@ -14,8 +14,14 @@ class CreateAttachTable extends Migration
     public function up()
     {
         Schema::create('attach', function (Blueprint $table) {
+            //权限ID
             $table->increments('id');
+            //权限名
             $table->string('name');
+            //权限路由
+            $table->string('route');
+            //权限路由描述
+            $table->string('routetake');
         });
     }
 

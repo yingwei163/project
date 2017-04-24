@@ -14,8 +14,11 @@ class CreatePowerLinkTable extends Migration
     public function up()
     {
         Schema::create('power_link', function (Blueprint $table) {
+            //链接表ID
             $table->increments('id');
+            //后台用户ID
             $table->string('uid');
+            //角色表ID
             $table->string('rid');
         });
     }

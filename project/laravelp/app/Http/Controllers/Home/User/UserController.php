@@ -7,6 +7,7 @@ use App\Http\Requests\Home\AddrageComic;
 use App\Http\Requests\Home\UserLogin;
 use App\Http\Requests\Home\UserRegist;
 use App\Model\AddrModel;
+use App\Model\sort;
 use App\Model\Home\collect;
 use App\Model\Home\imgcollect;
 use App\Model\Home\imgmessage;
@@ -15,6 +16,8 @@ use App\Model\InforModel;
 use App\Model\UserModel;
 use App\Model\AddComic;
 use App\Model\Addimg;
+use APP\Tool\Result;
+use App\Tool\SMS\SendTemplateSMS;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -27,6 +30,51 @@ header('conetnt-type:text/html;charset=utf8');
 class UserController extends Controller
 {
     private $pwd;
+    public function upphone(Request $request){
+            $preg = '/^1[3|4|5|7|8]\d{9}$/';
+            if(!preg_match($preg, $request->phone)){
+             return '0';
+            }
+        $id=Auth::id();
+        $uf=InforModel::find($id);
+        $codes='123456';
+        $code=str_shuffle($codes);
+        $uf->phone=$request->phone;
+        $uf->phonecode=$code;
+        $uf->is_phone='0';
+        $uf->save();
+       $sms= new SendTemplateSMS();
+                    //手机号       验证码 时间数 ID号
+       $re=$sms->sendSMS('15968659166',array($code,5),1);
+        return '1';
+    }
+    public function upcode(Request $request)
+    {
+            if (empty($request->codes)){
+                return '0';
+            }
+        $id=Auth::id();
+        $uf=InforModel::find($id);
+        $code=$uf->phonecode;
+        if ($code==$request->codes)
+        {
+            $uf->is_phone='1';
+            $uf->save();
+            return '1';
+        }else{
+            return '2';
+        }
+
+
+    }
+
+    public function sort(){
+        $sort=sort::all();
+//        dd($sort);
+        return view('/index')->with('show','')->with('bodycolor','')->with('sort',$sort);
+
+
+    }
     public function regist(UserRegist $request)
     {
         $this->pwd=Hash::make($request->pwd);

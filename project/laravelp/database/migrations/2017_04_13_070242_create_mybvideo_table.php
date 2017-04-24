@@ -13,14 +13,22 @@ class CreateMybvideoTable extends Migration
      */
     public function up()
     {
+
         Schema::create('myvideo', function (Blueprint $table) {
+            //作品ID
             $table->increments('id');
+            //用户ID
             $table->string('userid');
-            $table->string('auditid');
-            $table->string('auditto')->defaule(0);
+            //文本内容
             $table->string('videox');
+            //文本标题
             $table->string('videob');
+            //文本上传时间
             $table->string('videot');
+            //发布用户名
+            $table->string('name');
+            //发布视频代表图
+            $table->string('image');
         });
     }
 

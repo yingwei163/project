@@ -13,9 +13,13 @@ class CreatePowerTable extends Migration
      */
     public function up()
     {
+
         Schema::create('power', function (Blueprint $table) {
+            //用户ID
             $table->increments('id');
+            //用户名
             $table->string('name');
+            //用户密码
             $table->string('password');
         });
     }

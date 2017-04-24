@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePosterTable extends Migration
+class CreateSortTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,10 @@ class CreatePosterTable extends Migration
      */
     public function up()
     {
-        Schema::table('poster', function (Blueprint $table) {
-//            $table->increments('id');
-//            $table->
+        Schema::create('sort', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('name');  //名字
+            $table->string('url');      //路径
         });
     }
 
@@ -26,8 +27,6 @@ class CreatePosterTable extends Migration
      */
     public function down()
     {
-        Schema::table('poster', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('sort');
     }
 }

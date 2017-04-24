@@ -15,5 +15,6 @@ class VerifyCsrfToken extends BaseVerifier
         //
         '/home/user/ucnrefile',
         '/home/user/loginout',
+        '/admin/user/video_add',
     ];
 }

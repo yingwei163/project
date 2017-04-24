@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class UpdatePowerTable extends Migration
+class CreateCuthTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,10 @@ class UpdatePowerTable extends Migration
      */
     public function up()
     {
-        Schema::table('power', function (Blueprint $table) {
-            $table->rememberToken();
+        Schema::create('cuth', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('cid');  //用户id
+            $table->string('aid');   //商品id
         });
     }
 
@@ -25,8 +27,6 @@ class UpdatePowerTable extends Migration
      */
     public function down()
     {
-        Schema::table('power', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('cuth');
     }
 }

@@ -5,6 +5,8 @@
     <script src="/js/jquery-1.8.3.min.js"></script>
     <script>
         $(function() {
+            $('#codee').hide();
+            $('#code').hide();
             $('#topnav').addClass('navbar-fixed-top');
             $('#navbar').css('left',-95);
             $('#top-ld').show();
@@ -72,7 +74,6 @@
 //                        location.href = "/index/show/bodycolor"
                     },
                     error:function(xhr){
-                        document.write(xhr.responseText);
                         eval('var obj ='+xhr.responseText);
                         $('#birer').html(obj['br']);
                         $('#sexer').html(obj['sex']);
@@ -81,9 +82,60 @@
                     dataType:'json'
                 });
             });
+    $('#upphone').click(function () {
+        $('#phoneon').append('{{csrf_field()}}');
+        $.ajax({
+            url:'{{url('/home/user/upphone')}}',
+            type:'post',
+            data:$('#phoneon').serialize(),
+            success:function(data){
+                if (data==0){
+                    $('#phoneer').html('手机号码不正确');
+                }else{
+                    $('#upphonee').hide();
+                    $('#upphone').hide();
+                    $('#codee').show();
+                    $('#code').show();
+                    $('#phoneer').html('验证码发送成功');
+                }
+//                        location.href = "/index/show/bodycolor"
+            },
+            error:function(xhr){
+//                document.write(xhr.responseText);
+//                eval('var obj ='+xhr.responseText);
+//                $('#phoneer').html(obj['br']);
+            },
+            dataType:'json'
+        });
+    })
 
 
-
+            $('#code').click(function () {
+                $('#codeon').append('{{csrf_field()}}');
+                $.ajax({
+                    url:'{{url('/home/user/upcode')}}',
+                    type:'post',
+                    data:$('#codeon').serialize(),
+                    success:function(data){
+                        if (data==0){
+                            $('#phoneer').html('验证码不能为空');
+                        }else if(data=2){
+                            $('#phoneer').html('验证码错误');
+                        }
+                        $('#phoneer').html('成功验证');
+                        $('#codee').hide();
+                        $('#code').hide();
+                        $('#showphone').append('<input disabled value={{$userinfo->phone}} type="text" class="form-control"  name="phone"><br><span>手机已经验证成功</span>');
+//                        location.href = "/index/show/bodycolor"
+                    },
+                    error:function(xhr){
+//                document.write(xhr.responseText);
+//                eval('var obj ='+xhr.responseText);
+//                $('#phoneer').html(obj['br']);
+                    },
+                    dataType:'json'
+                });
+            })
 
 
 
@@ -125,8 +177,9 @@
         <div class="container rename">
             <form action="{{url('/home/user/email')}}" method='post'>
                 {{csrf_field()}}
-                <input type="email" class="form-control"  name="email" value="{{$user->email}}">
+
                 @if($userinfo->is_confirmed==1)
+                    <input type="email" class="form-control"  name="email" value="{{$user->email}}" disabled><br>
                 <span>邮箱已经验证成功</span>
                     @else
                     <input id='rename' type="submit" class="btn btn-warning" value="确认">
@@ -134,11 +187,25 @@
             </form>
         </div>
         <h2>验证手机</h2>
+        {{ Session::get('phoneer') }}
+        <span id="phoneer"></span>
+        <div id="showphone">
+
+        </div>
         <div class="container rename">
-            <form action="">
-                <input type="phone" class="form-control"  name="phone">
-                <input id='rename' type="submit" class="btn btn-warning" value="确认">
+            @if($userinfo->is_phone==1)
+                <input disabled id='upphonee' value='{{$userinfo->phone}}' type="text" class="form-control"  name="phone"><br>
+                <span>手机已经验证成功</span>
+            @else
+            <form id="phoneon" method="post">
+                <input  id='upphonee' value='{{$userinfo->phone}}' type="text" class="form-control"  name="phone"><br>
             </form>
+            <input id='upphone' type="submit" class="btn btn-warning" value="发送验证码">
+            <form id="codeon" method="post">
+                <input  id='codee' type="text" class="form-control"  name="codes">
+            </form>
+            <input id='code' type="submit" class="btn btn-warning" value="确认">
+            @endif
         </div>
         <h2>基本信息修改</h2>
         {{ Session::get('successfo') }}

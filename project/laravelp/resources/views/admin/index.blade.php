@@ -91,13 +91,13 @@
 							</li>
 							<li>
 							<li class="nav-header">
-								Your Account
+								视频管理
 							</li>
-							<li>
-								<a href="profile.htm"><i class="icon-user"></i> Profile</a>
+							<li @yield('active3')>
+								<a href="{{url('/admin/user/video_list')}}"><i class="icon-user"></i> 视频上传管理</a>
 							</li>
-							<li>
-								<a href="settings.htm"><i class="icon-cog"></i> Settings</a>
+							<li @yield('active5')>
+								<a href="settings.htm"><i class="icon-cog"></i> 视频下载管理</a>
 							</li>
 							<li class="divider">
 							</li>
@@ -105,11 +105,11 @@
 								<a href="help.htm"><i class="icon-info-sign"></i> Help</a>
 							</li>
 							<li class="nav-header">
-								Bonus Templates
+								标题管理
 							</li>
-							<li>
-								<a href="gallery.htm"><i class="icon-picture"></i> Gallery</a>
-							</li>
+							<li @yield('active8')>
+								<a href="/admin/user/sort_list"><i class="icon-white icon-home"></i> 标题管理</a>
+							</li
 							<li>
 								<a href="blank.htm"><i class="icon-stop"></i> Blank Slate</a>
 							</li>

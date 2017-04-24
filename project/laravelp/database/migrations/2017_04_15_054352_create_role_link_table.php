@@ -14,8 +14,11 @@ class CreateRoleLinkTable extends Migration
     public function up()
     {
         Schema::create('role_link', function (Blueprint $table) {
+            //关系表ID
             $table->increments('id');
+            //角色表ID
             $table->string('rid');
+            //权限表ID
             $table->string('aid');
         });
     }

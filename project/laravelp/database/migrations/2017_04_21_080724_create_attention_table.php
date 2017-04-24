@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class UpdateRoleTable extends Migration
+class CreateAttentionTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,9 @@ class UpdateRoleTable extends Migration
      */
     public function up()
     {
-        Schema::table('role', function (Blueprint $table) {
-            $table->string('roletake');
+        Schema::create('attention', function (Blueprint $table) {
+            $table->increments('id');
+            $table->timestamps();
         });
     }
 
@@ -25,8 +26,6 @@ class UpdateRoleTable extends Migration
      */
     public function down()
     {
-        Schema::table('role', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('attention');
     }
 }

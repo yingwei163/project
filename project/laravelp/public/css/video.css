@@ -1,0 +1,19 @@
+body{background-color: #fff;}
+.left{float: left}
+.right{float: right}
+.big{  width: 594px;  height: 378px;border-radius: 3px;}
+.v_mid{padding-top: 20px;position: relative;}
+#v_img{margin-right: 10px;width: 594px;height: 378px;border-radius: 3px;}
+.v_xt{  position:relative;width: 239px;height: 182px;margin-right: 10px;margin-bottom: 13px;}
+.v_xtt{  width: 239px;height: 182px;}
+.v_txt{color:#fff;padding: 15px 10px;  width: 593px;  height: 60px;background-color: rgba(0,0,0,.3);position: absolute;bottom: 13px;line-height: 60px;}
+.bzxt{  float: left;width: 500px;}
+.vi_txt{color: #fff;  position: absolute;bottom: 0px;width: 239px;height: 24px;padding: 5px 10px;background-color: rgba(0,0,0,.3);}
+.v_tc{position:absolute;bottom:0px;width: 239px;height: 182px;margin-right: 10px;margin-bottom: 13px;background-color: rgba(0,0,0,.3);display: none;}
+.v_mtop{margin-top: 20px;  margin-bottom: 15px;}
+.v_mtopn{width:128px;height: 25px;padding: 2px 15px;background-color: #0f0f0f;color:#fff;border-radius: 3px;line-height: 25px;}
+.v_mtopnt{margin-left: 15px;height: 25px;line-height: 25px;}
+.v_mtopv{  width: 280px;  height: 192px;float: left;margin-top: 20px;margin-right:5px;border-radius: 5px;}
+#v_imgv{  width: 280px;  height: 192px;padding-bottom: 7px;}
+.sucv{margin-top: 20px;}
+#v_vm{height: 500px;}

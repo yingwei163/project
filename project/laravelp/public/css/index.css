@@ -101,3 +101,27 @@ ul li{list-style: none;}
 .channel-c{width:168px;height:28px;} .channel-c>option{font-size:18px;} .channel-c:hover{cursor:pointer;}
 .cj-bu{background-color:#242424;width:60px;height:30px;color:white;font-size:14px;font-weight:bold;float:right;} .cj-bu:hover{opacity: 0.9;}
 .cj-p{float:right;text-align:center;line-height:30px;margin-right:20px;font-size:16px;font-weight:bold;color: #ccd0d2;}
+/*传剑加的css*/
+.jgzz{color:#F2FBF7;background-color:#CCCCCC;border-radius: 2px;width:50px;height:22px;line-height: 22px;padding-left: 5px;}
+.top-img-2{padding-left:110px;background-repeat:no-repeat;padding-top:20px;width:1500px;height: 130px;margin-left: auto;margin-right:auto;background-image: url('/images/dt2.png')}
+#bzjii{padding-right:5px;font-size:20px;color:#fea701;line-height:25px;text-align:right;width:140px;height:25px;border-radius: 50px;border:1px solid #fea701;float: right}
+.falls-midden-mid-con{width: 710px;padding: 15px 55px 15px 55px;}
+.sjk{width: 270px;height:50px;margin-top:10px;}/*border:solid 1px gray;*/
+.tsjk{width: 150px;height: 48px;float: left}
+.tp{width: 50px;height: 48px}
+.itp{width: 50px;height: 50px;float:left}
+.itt{width:72px;height: 50px;float:left;}/*72 21 72 16*/
+.ttt{width: 72px;height: 21px;font: left}
+#txt{margin:0px 0px 0px 5px;font-size: 5px;float: left}
+.tttt{margin:13px 0px 0px 5px;color: gray;float: left}/*100 45*/
+.rgz{width: 100px;height: 45px;float: right}
+.jgz1{color:#ffffff;background-color: #fea701;border-radius: 2px;width:50px;height:22px;line-height: 22px;padding-left: 5px;}
+.jgz2{color:#F2FBF7;background-color:#CCCCCC;border-radius: 2px;width:50px;height:22px;line-height: 22px;padding-left: 5px;}
+/*订阅*/
+#subscription{width: 710px;height: 220px;margin:0 auto;}
+#subscriptiontitle{width: 668px;height:21px;margin:20px 0px 0px 15px;float: left}
+#subscription_ntroduce{width:668px;height:142px;margin:20px 0px 0px 15px;float: left}
+#subscription_img{width: 142px;height: 142px;float: left;}
+#subscription_txt{width: 505px;height: 84px;float: left;}
+
+/*叶传剑*/
