@@ -24,4 +24,12 @@ class imgcollect extends Model
     protected $hidden = [
         'remember_token',
     ];
+    public function works()
+    {
+        return $this->belongsToMany('App\Model\Home\imgmessage');
+    }
+    public function mybimg()
+    {
+        return $this->belongsTo('App\Model\AddComic');
+    }
 }

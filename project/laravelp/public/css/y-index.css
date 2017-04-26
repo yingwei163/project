@@ -39,8 +39,8 @@ ul li{list-style: none;}
 .falls-left{width:128px;height: 365px;float: left;}
 .falls-left ul{width: 126px;height: 211px;border:1px solid #e3e3e3;border-top: none;background-color: #ffffff;margin-top: -5px;}
 .falls-left ul li{width: 114px;padding: 10px 0px 10px 12px;text-align: left;font-size: 16px;}
-.falls-midden{width:710px;height:1500px;margin-left: 20px;margin-right: 20px;float: left;}
-.falls-midden-top{width:710px;height:35px;}
+.falls-midden{width:710px;height:100%;overflow:hidden;margin-left: 20px;margin-right: 20px;float: left;}
+.falls-midden-top{width:720px;height:35px;}
 .falls-hot{float:left;background-color: #333;width:87px;height:33px;border-radius: 5px 0px 0px 5px;line-height: 33px;}
 .falls-hot a{color:#fff;padding-left: 20px;padding-right: 13px;font-size: 13px;}
 .falls-hott{border:1px solid #999;float:left;background-color: #ffffff;width:87px;height:33px;border-radius: 0px 5px 5px 0px;line-height: 33px;margin-right: 10px;}
@@ -97,6 +97,7 @@ ul li{list-style: none;}
 .sing-right-bottom a{color:#fea701;}
 .show{display: block;}
 .success{color:#fea701;font-size: 12px;}
+
 
 
 

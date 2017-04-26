@@ -1,4 +1,4 @@
-@extends('home/user/addcomic')
+@extends('/home/user/addcomic')
    @section('addjs')
        <script>
            $(function(){

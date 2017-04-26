@@ -51,7 +51,7 @@ class CreateUserinfoTable extends Migration
             //邮箱是否验证
             $table->integer('is_confirmed');
             //手机验证码
-            $table->stirng('phonecode');
+            $table->string('phonecode');
             //手机是否验证
             $table->string('is_phone');
         });

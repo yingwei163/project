@@ -1,7 +1,8 @@
-@extends('master')
+@extends('/master')
 @section('head')
-    <link rel="stylesheet" href="/css/item_cj.css">
-    <link rel="stylesheet" href="/css/item_index.css">
+    <link rel="stylesheet" href="{{url('/css/item_cj.css')}}">
+    <link rel="stylesheet" href="{{url('/css/item_index.css')}}">
+    <link rel="stylesheet" href="{{url('/css/mygod.css')}}">
     @yield('addcss')
     <script src="/js/jquery-1.8.3.min.js"></script>
     <script>
@@ -13,6 +14,23 @@
                 });
             //页面加载完之后自动触发一次加载神作事件！
             $('.godclick').trigger("click");
+            $('.storyimg').each(function(index){       //$('.pcimg')代表是所有图片集  each相当与对集合遍历
+                $wd=$(this).width();$wh=$(this).height();
+                if($wd>$wh){
+                    $gd=50;
+                    $gh=$wh/$wd*50;
+                    $(this).width($gd);
+                    $(this).height($gh);
+                }else{
+                    $gh=50;
+                    $gd=$wd/$wh*50;
+                    $(this).width($gd);
+                    $(this).height($gh);
+                }
+            });
+            $('.story').click(function(){
+                location.href='{{url('/home/user/mypublish')}}';
+            });
         })
         //触发神作单击事件
     </script>
@@ -66,19 +84,20 @@
        </div>
    </div>
    <div class="wrapper-cj">
+       @section('left')
        <div class="wrapper-left">
           <ul class="wLeft-list  clearfix">
               <li>
-                  <a href="/home/user/mygod" class="godclick"><span class="glyphicon glyphicon-thumbs-up"></span> 我的神作</a>
+                  <a href="{{url('/home/user/mygod')}}" class="godclick"><span class="glyphicon glyphicon-thumbs-up"></span> 我的神作</a>
               </li>
               <li>
                   <a href="###"><span class="glyphicon glyphicon-heart"></span> 关注神作</a>
               </li>
               <li>
-                  <a href="###"><span class="glyphicon glyphicon-comment"></span> 评论</a>
+                  <a href="{{url('/home/user/mytalks')}}"><span class="glyphicon glyphicon-comment"></span> 评论</a>
               </li>
               <li>
-                  <a href="###"><span class="glyphicon glyphicon-send"></span> 小纸条</a>
+                  <a href="{{url('/home/user/paper')}}"><span class="glyphicon glyphicon-send"></span> 小纸条</a>
               </li>
               <li>
                   <a href="###"><span class="glyphicon glyphicon-user"></span> 关注/粉丝</a>
@@ -90,13 +109,14 @@
                   <a href="###"><span class="glyphicon glyphicon-refresh"></span> 订阅更新</a>
               </li>
               <li>
-                  <a href="/home/user/usercon"><span class="glyphicon glyphicon-cog"></span> 帐号设置</a>
+                  <a href="{{url('/home/user/usercon')}}"><span class="glyphicon glyphicon-cog"></span> 帐号设置</a>
               </li>
               <li>
-                  <a href="###"><span class="glyphicon glyphicon-picture"></span> 表情组</a>
+                  <a href="{{url('/home/user/mypublish')}}"><span class="glyphicon glyphicon-picture"></span> 我的连载</a>
               </li>
           </ul>
        </div>
+       @show
        <div class="wrapper-center">
            @section('mygod')
            <div class="user-nodata">
@@ -104,6 +124,7 @@
            </div>
            @show
        </div>
+      @section('right')
        <div class="wrapper-right">
            <div class="user_channel">
                <h4>我的频道</h4>
@@ -114,7 +135,21 @@
            <div class="user_channel">
                <h4>我的连载</h4>
                <div class="right-body">
-                   <p>暂无连载</p>
+                   @if(empty($publish))
+                     <p>暂无连载</p>
+                   @else
+                     @for($i=0;$i<count($publish);$i++)
+                         <div class="story">
+                            <div class="story_left">
+                                <img class="storyimg" src="{{url($publish[$i]['cover'])}}" alt="zzz">
+                            </div>
+                            <div class="story_right">
+                                 {{$publish[$i]['title']}}
+                            </div>
+                         </div>
+                     @endfor
+                    {{$publish->links()}}
+                   @endif
                </div>
                <div class="publish">
                    <a href="/home/user/addgod"><p><span class="glyphicon glyphicon-plus">创建连载</span></p></a>
@@ -133,5 +168,6 @@
                </div>
            </div>
        </div>
+      @show
    </div>
 @endsection

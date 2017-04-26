@@ -1,8 +1,8 @@
-@extends('home\user\c-marster')
+@extends('/home/user/c-marster')
 @section('head')
-    <link rel="stylesheet" href="/css/item_cj.css">
-    <link rel="stylesheet" href="/css/item_index.css">
-    <script src="/js/jquery-1.8.3.min.js"></script>
+    <link rel="stylesheet" href="{{url('/css/item_cj.css')}}">
+    <link rel="stylesheet" href="{{url('/css/item_index.css')}}">
+    <script src="{{url('/js/jquery-1.8.3.min.js')}}"></script>
     <script>
         $(function() {
             $('#codee').hide();
@@ -71,11 +71,12 @@
                     type:'post',
                     data:$('#userinfoup').serialize(),
                     success:function(data){
-//                        location.href = "/index/show/bodycolor"
+                        alert('修改成功');
+                        location.href = "/home/user/usercon"
                     },
                     error:function(xhr){
                         eval('var obj ='+xhr.responseText);
-                        $('#birer').html(obj['br']);
+                        $('#birer').html(obj['bir']);
                         $('#sexer').html(obj['sex']);
                         $('#addrer').html(obj['addr']);
                     },
@@ -98,12 +99,11 @@
                     $('#code').show();
                     $('#phoneer').html('验证码发送成功');
                 }
-//                        location.href = "/index/show/bodycolor"
+//
             },
             error:function(xhr){
-//                document.write(xhr.responseText);
-//                eval('var obj ='+xhr.responseText);
-//                $('#phoneer').html(obj['br']);
+                eval('var obj ='+xhr.responseText);
+                $('#phoneer').html(obj['br']);
             },
             dataType:'json'
         });
@@ -148,12 +148,12 @@
 @section('add-god')
     <div id='total' class="container">
         <h2>修改名字</h2>
-        <div class="rename container">改名一次消耗500尼玛币，你想好了么？<p>新名字：</p>
+        <div class="rename container">改名一次消 耗 500 尼玛币,你想好了么<p>新名字：</p>
             @if(count($errors))
                 {{$errors->first('nameaj')}}
                 @endif
             {{ Session::get('success') }}
-            <form id='renamef' action="/home/user/ucnrename" method="post">
+            <form id='renamef' action="{{url('/home/user/ucnrename')}}" method="post">
                 {{csrf_field()}}
             <input name='nameaj' type="text" placeholder="3-16位字符" class="form-control" >
                 <input id='renamein' type="submit" class="btn btn-warning" value="确认">
@@ -164,7 +164,7 @@
         <div class="container rename">
         <img src="{{url($userinfo->icon)}}"  height="50px" alt="" class="img-rounded">
             <label id='fileup' class="btn btn-warning" for="refile">上传文件</label>
-            <form id='fileupf' action="/home/user/ucnrefile" enctype="multipart/form-data" method="post">
+            <form id='fileupf' action="{{url('/home/user/ucnrefile')}}" enctype="multipart/form-data" method="post">
                 {{csrf_field()}}
                 <input type="file" name='newfile' id="refile" style="position:absolute;clip:rect(0 0 0 0);">
                 <input id='renewfile' type="submit" class="btn btn-warning" value="确认">
@@ -182,6 +182,7 @@
                     <input type="email" class="form-control"  name="email" value="{{$user->email}}" disabled><br>
                 <span>邮箱已经验证成功</span>
                     @else
+                    <input type="email" class="form-control"  name="email" value="{{$user->email}}"><br>
                     <input id='rename' type="submit" class="btn btn-warning" value="确认">
                 @endif
             </form>
@@ -210,23 +211,23 @@
         <h2>基本信息修改</h2>
         {{ Session::get('successfo') }}
         <div class="container rename">
-            <form action="" id="userinfoup">
+            <form  id="userinfoup" method="post">
             生日:<br>
-            <input type="date" class="form-control"  name="bir" value="{{$userinfo->bir}}}"><br>
-                <span id="#birer"></span><br>
+            <input type="date" class="form-control"  name="bir" value="{{$userinfo->bir}}"><br>
+                <span id="birer"></span><br>
             性别:<br>
             <select name="sex" id="sexup">
-                <option value="0" <?php $userinfo->sex==0?'selected':'' ?>>男</option>
-                <option value="1" <?php $userinfo->sex==1?'selected':'' ?>>女</option>
+                <option value="0" <?= $userinfo->sex==0?'selected':'' ?> >男</option>
+                <option value="1" <?= $userinfo->sex==1?'selected':'' ?> >女</option>
             </select><br>
-                <span id="#sexer"></span><br>
+                <span id="sexer"></span><br>
             地区:<br>
             <select  id="addrup">
             </select>
             <select  id="cityup">
             </select>
                 <br>
-                <span id="#addrer"></span><br>
+                <span id="addrer"></span><br>
                 <input type="hidden" name="addr" id="addr">
                 <input type="hidden" name="addrr" id="addrr">
             </form>

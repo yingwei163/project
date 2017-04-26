@@ -1,8 +1,8 @@
 @extends('bootmodel')
 @section('head')
-    <link rel="stylesheet" href="/css/index.css">
-    <link rel="stylesheet" href="/css/y-index.css">
-    <script src="/js/jquery-1.8.3.min.js"></script>
+    <link rel="stylesheet" href="{{url('/css/index.css')}}">
+    <link rel="stylesheet" href="{{url('/css/y-index.css')}}">
+    <script src="{{url('/js/jquery-1.8.3.min.js')}}"></script>
     <script>
         $(function(){
             $(window).scroll(function ()
@@ -144,7 +144,7 @@
 @yield('heads')
 @section('body')
     @section('topdenv')
-    <div id="bodyContent" class="container login" ><img src="/images/dbz.png" alt="">
+    <div id="bodyContent" class="container login" ><img src="{{url('/images/dbz.png')}}" alt="">
         <div class="sing">
             <div class="sing-left tit-left">
                 <form action="" id="loginer">
@@ -155,24 +155,24 @@
 
                 </form><input id='login' type="submit" class="singbtn" value="登陆">
                 &nbsp; &nbsp; &nbsp;&nbsp;其他方式登陆:<br>
-                &nbsp; &nbsp; &nbsp;<img src="/images/any.png" alt="" class="any">
-                <img src="/images/any.png" alt="" class="any">
-                <img src="/images/any.png" alt="" class="any">
-                <img src="/images/any.png" alt="" class="any">
+                &nbsp; &nbsp; &nbsp;<img src="{{url('/images/any.png')}}" alt="" class="any">
+                <img src="{{url('/images/any.png')}}" alt="" class="any">
+                <img src="{{url('/images/any.png')}}" alt="" class="any">
+                <img src="{{url('/images/any.png')}}" alt="" class="any">
             </div>
             <div class="sing-right tit-right">
                 <div class="sing-right-top">
                     <p>用注册帐号登录后你可以发暴漫,还能跟其他小伙伴聊天发小纸条,有很多好处哦,关注你的偶像,亲~</p>
-                    <img src="/images/yao.png" alt="">
+                    <img src="{{url('/images/yao.png')}}" alt="">
                 </div>
                 <div class="sing-right-bottom">
                     <p>什么?连暴漫帐号都没有?不怕吃亏?你TM在逗<br><a href="">立刻注册 ></a></p>
-                    <img src="/images/zdw.png" alt="">
+                    <img src="{{url('/images/zdw.png')}}" alt="">
                 </div>
             </div>
         </div>
     </div>
-    <div id="bodyContentr" class="container regist"><img src="/images/dbz.png" alt="">
+    <div id="bodyContentr" class="container regist"><img src="{{url('/images/dbz.png')}}" alt="">
         <div class="sing">
             <div class="sing-re-left tit-left">
                 <form id='register' action="" method="post">
@@ -195,19 +195,19 @@
 
                 </form><input id='regist' type="submit" class="singbtn" value="注册">
                 &nbsp; &nbsp; &nbsp;&nbsp;其他方式注册:<br>
-                &nbsp; &nbsp; &nbsp;<img src="/images/any.png" alt="" class="any">
-                <img src="/images/any.png" alt="" class="any">
-                <img src="/images/any.png" alt="" class="any">
-                <img src="/images/any.png" alt="" class="any">
+                &nbsp; &nbsp; &nbsp;<img src="{{url('/images/any.png')}}" alt="" class="any">
+                <img src="{{url('/images/any.png')}}" alt="" class="any">
+                <img src="{{url('/images/any.png')}}" alt="" class="any">
+                <img src="{{url('/images/any.png')}}" alt="" class="any">
             </div>
             <div class="sing-right tit-right">
                 <div class="sing-right-top">
                     <p>用注册帐号登录后你可以发暴漫,还能跟其他小伙伴聊天发小纸条,有很多好处哦,关注你的偶像,亲~</p>
-                    <img src="/images/yao.png" alt="">
+                    <img src="{{url('/images/yao.png')}}" alt="">
                 </div>
                 <div class="sing-right-bottom">
                     <p>什么?你有帐号还不赶快登录?不怕吃亏？你TM在逗我?<br><a href="">立刻登录 ></a></p>
-                    <img src="/images/zdw.png" alt="">
+                    <img src="{{url('/images/zdw.png')}}" alt="">
                 </div>
             </div>
         </div>
@@ -227,8 +227,8 @@
         </ul>
         <div  class="top-right">
             @if(Auth::check())
-                <a href="/home/user/c-index"><div  class="glyphicon glyphicon-user">{{Auth::user()->name}}</div></a>
-                <a href="/home/user/loginout"><div class="glyphicon ">注销</div></a>
+                <a href="{{url('/home/user/c-index')}}"><div  class="glyphicon glyphicon-user">{{Auth::user()->name}}</div></a>
+                <a href="{{url('/home/user/loginout')}}"><div class="glyphicon ">注销</div></a>
             @else
                 <a href="javascript:void(0)"><div  class="logintxt">登录</div></a>
                 <a href="javascript:void(0)"><div class="registtxt">注册</div></a>
@@ -239,7 +239,7 @@
     <!--顶图-->
     <div class="top-img ">
         <div class=" top-img-l">
-            <div  class="logo"><img src="/images/logo.png" alt="" ></div>
+            <div  class="logo"><img src="{{url('/images/logo.png')}}" alt="" ></div>
         </div>
     </div>
     @show
@@ -254,16 +254,16 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a id='mid-a1' class="navbar-brand" href="/">首页</a>
-                <a id='mid-a' class="navbar-brand" href="#">暴漫</a>
-                <a id='mid-a' class="navbar-brand" href="#">趣图</a>
-                <a id='mid-a' class="navbar-brand" href="#">视频</a>
-                <a id='mid-a' class="navbar-brand" href="#">文字</a>
+                @foreach($sort as $k)
+
+                    <a id='mid-a' class="navbar-brand" href="{{url($k->url)}}">{{$k->name}}</a>
+
+                @endforeach
             </div>
             <div id="navbar" class="navbar-collapse collapse">
-                <form class="navbar-form navbar-right">
+                <form class="navbar-form navbar-right" action="{{url('/home/user/nav')}}">
                     {{--<div class="form-group">--}}
-                    <input type="password" placeholder="举个栗子" id='mid-input' class="form-control ">
+                    <input name='search' type="text" placeholder="举个栗子" id='mid-input' class="form-control ">
                     {{--</div>--}}
                     <button type="submit" class="btn btn-success " id="mid-btn">搜索</button>
                 </form>
@@ -271,8 +271,8 @@
             </div>
             <div id='top-ld' class="top-right">
                 @if(Auth::check())
-                    <a href="/home/user/c-index"><div  class="glyphicon glyphicon-user">{{Auth::user()->name}}</div></a>
-                    <a href="/home/user/loginout"><div class="glyphicon ">注销</div></a>
+                    <a href="{{url('/home/user/c-index')}}"><div  class="glyphicon glyphicon-user">{{Auth::user()->name}}</div></a>
+                    <a href="{{url('/home/user/loginout')}}"><div class="glyphicon ">注销</div></a>
                 @else
                     <a href="javascript:void(0)"><div  class="logintxt">登录</div></a>
                     <a href="javascript:void(0)"><div class="registtxt">注册</div></a>
@@ -288,25 +288,25 @@
         <div class="container mid-row">
             <div class="row">
                 <div class="col-md-4 mid-img remain">
-                    <img id='big' src="/images/tit.jpg" alt="">
+                    <img id='big' src="{{url('/images/tit.jpg')}}" alt="">
                     <div class="mid-img-tit">
                         <span><a href="" class="mid-img-font">【淫荡的一天又开始啦】 谁淫荡啊，谁...</a></span>
                     </div>
                 </div>
                 <div class="col-md-4 mid-img">
-                    <img src="/images/tit.jpg" alt="">
+                    <img src="{{url('/images/tit.jpg')}}" alt="">
                     <div class="mid-img-tit">
                         <span><a href="" class="mid-img-font">【淫荡的一天又开始啦】 谁淫荡啊，谁...</a></span>
                     </div>
                 </div>
                 <div class="col-md-4 mid-img">
-                    <img src="/images/tit.jpg" alt="">
+                    <img src="{{url('/images/tit.jpg')}}" alt="">
                     <div class="mid-img-tit">
                         <span><a href="" class="mid-img-font">【淫荡的一天又开始啦】 谁淫荡啊，谁...</a></span>
                     </div>
                 </div>
                 <div class="col-md-4 mid-img">
-                    <img src="/images/tit.jpg" alt="">
+                    <img src="{{url('/images/tit.jpg')}}" alt="">
                     <div class="mid-img-tit">
                         <span><a href="" class="mid-img-font">【淫荡的一天又开始啦】 谁淫荡啊，谁...</a></span>
                     </div>
@@ -315,19 +315,27 @@
         </div>
         <!--中导图-->
         <div class="container">
-            <img class='mid-img-ggt' src="/images/ggt.jpg" alt="">
+            <img class='mid-img-ggt' src="{{url('/images/ggt.jpg')}}" alt="">
         </div>
         <!--中瀑布-->
         <div id="falls" class="container">
             <div id="fallsleft" class="falls-left">
                 <div id="fallsleftc">
-                    <img src="/images/home-wnm.gif" alt="" width="128" height="106">
+                    <img src="{{url('/images/home-wnm.gif')}}" alt="" width="128" height="106">
                     <ul>
-                        <li><a id="iad"><span class="glyphicon glyphicon-cog"></span>制作器</a></li>
-                        <li><a href=""><span class="glyphicon glyphicon-cog"></span>全部频道</a></li>
-                        <li><a href=""><span class="glyphicon glyphicon-cog"></span>全部作者</a></li>
-                        <li><a href=""><span class="glyphicon glyphicon-cog"></span>订阅频道</a></li>
-                        <li><a href=""><span class="glyphicon glyphicon-cog"></span>关注作者</a></li>
+                        @if(Auth::check())
+                            <li><a id="iad"><span class="glyphicon glyphicon-cog"></span>制作器</a></li>
+                            <li><a href=""><span class="glyphicon glyphicon-cog"></span>全部频道</a></li>
+                            <li><a href=""><span class="glyphicon glyphicon-cog"></span>全部作者</a></li>
+                            <li><a href=""><span class="glyphicon glyphicon-cog"></span>订阅频道</a></li>
+                            <li><a href=""><span class="glyphicon glyphicon-cog"></span>关注作者</a></li>
+                        @else
+                            <li><a href="{{url('/index/show/bodycolor')}}"><span class="glyphicon glyphicon-cog"></span>制作器</a></li>
+                            <li><a href="{{url('/index/show/bodycolor')}}"><span class="glyphicon glyphicon-cog"></span>全部频道</a></li>
+                            <li><a href="{{url('/index/show/bodycolor')}}"><span class="glyphicon glyphicon-cog"></span>全部作者</a></li>
+                            <li><a href="{{url('/index/show/bodycolor')}}"><span class="glyphicon glyphicon-cog"></span>订阅频道</a></li>
+                            <li><a href="{{url('/index/show/bodycolor')}}"><span class="glyphicon glyphicon-cog"></span>关注作者</a></li>
+                        @endif
                     </ul>
                 </div>
             </div>
@@ -342,7 +350,7 @@
 
                     <div class="addcontent" id="addcontent">
                         <div class="content-left">
-                            <a href="/addcomic" class="left-title" id="left-t">漫画上传</a>
+                            <a href="{{url('/addcomic')}}" class="left-title" id="left-t">漫画上传</a>
                             <a href="###" class="right-title" id="right-t">漫画制作</a>
                         </div>
                         <div class="content-right">
@@ -367,8 +375,8 @@
                 </div>
 
                 <div class="falls-midden-top">
-                    <div class="falls-hot"><a href="">热门<span class="glyphicon glyphicon-arrow-down"></span></a></div>
-                    <div class="falls-hott"><a href="">最新<span class="glyphicon glyphicon-arrow-down"></span></a></div>
+                    <div class="falls-hot"><a href="{{url('/home/user/works_hot')}}">热门<span class="glyphicon glyphicon-arrow-down"></span></a></div>
+                    <div class="falls-hott"><a href="{{url('/home/user/works_up')}}">最新<span class="glyphicon glyphicon-arrow-down"></span></a></div>
                     <div id="falls-mi-nav">
                         <form class="navbar-form navbar-right">
                             {{--<div class="form-group">--}}
@@ -380,7 +388,7 @@
                 </div>
                 <div class="falls-midden-mid">
                     <div class="falls-midden-mid-tit">
-                        <div class="tit-left"> <img src="/images/wnm.jpg" alt="..." class="img-circle" width="55" height="55"></div>
+                        <div class="tit-left"> <img src="{{url('/images/wnm.jpg')}}" alt="..." class="img-circle" width="55" height="55"></div>
                         <div class="falls-midden-mid-tit-bt"><div class="tit-left">暴走大事件</div><div id="bzji"><span class="glyphicon glyphicon-blackboard"></span>暴走大事件第五季</div></div>
                         <div class="falls-midden-mid-tit-btt"><div class="tit-left jgz"><span class="glyphicon glyphicon-plus"></span>关注</div><div class="tit-right tit-time">4月7日 03时58分</div></div>
                     </div>
@@ -388,7 +396,7 @@
                         <div class="falls-con-tit">
                             <h4>大事件特别篇..</h4>
                             <div class="falls-con-img">
-                                <img src="/images/mrbg.png" alt="">
+                                <img src="{{url('/images/mrbg.png')}}" alt="">
                             </div>
                             <div>分享收藏</div>
                             <hr>
@@ -402,7 +410,7 @@
                 <div class="falls-right-tit">
                     <div class="tit-left channel">频道</div>
                     <div class="tit-right"><a href="">推荐</a> | <a href="">最佳</a></div>
-                    <img src="/images/line.png" alt="" class="tit-line">
+                    <img src="{{url('/images/line.png')}}" alt="" class="tit-line">
                 </div>
                 <div class="falls-right-channel">
                     <div>数据库的频道</div>
@@ -458,11 +466,11 @@
         </dl>
         <div class="bzmhapp">
             <p>暴走漫画app</p>
-            <img src="/images/bzmh.gif" alt="">
+            <img src="{{url('/images/bzmh.gif')}}" alt="">
         </div>
         <div class="bzrbapp">
             <p>暴走日报app</p>
-            <img src="/images/bzrb.gif" alt="">
+            <img src="{{url('/images/bzrb.gif')}}" alt="">
         </div>
     </div>
     <div class="footmar-bot container">

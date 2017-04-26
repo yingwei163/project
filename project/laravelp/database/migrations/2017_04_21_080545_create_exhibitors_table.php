@@ -13,10 +13,11 @@ class CreateExhibitorsTable extends Migration
      */
     public function up()
     {
-            Schema::create('exhibitors', function (Blueprint $table) {
+            Schema::create('Exhibitors', function (Blueprint $table) {
                 $table->increments('id');
                 $table->string('eid');  //订阅id
-                $table->string('img');
+                $table->string('eimg');
+                $table->string('etime');
                 $table->string('tit');  //订阅标题
                 $table->string('txt');  //正文
             });

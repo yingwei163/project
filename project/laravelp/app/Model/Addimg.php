@@ -18,4 +18,14 @@ class Addimg extends Model
     protected $hidden = [
         'remember_token',
     ];
+    public function collect()
+    {
+        return $this->belongsTo('App\Model\Home\imgcollect','id','works_id');
+    }
+    public function users()
+    {
+
+        return $this->belongsToMany('App\Model\Home\imgcollect','imgmessage','id','works_id');
+
+    }
 }

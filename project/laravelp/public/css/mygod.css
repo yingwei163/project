@@ -1,6 +1,6 @@
 
 /*继承更改的样式*/
-.ganlist{width:620px;background-color:white;height:100%;padding:10px 10px;border-bottom:16px solid #F3F3F3;}
+.ganlist{width:620px;height:100%;overflow:hidden;background-color:white;padding:10px 10px;border-bottom:16px solid #F3F3F3;margin-left:auto;margin-right:auto;}
 .gantop{width:600px;height:83px;padding:10px 10px;line-height:83px;}
 .topc-left>img{width:50px;display:block;}
 .ganname{display:block;float:left;}
@@ -15,7 +15,7 @@
 .inright>li{width:70px;height:26px;line-height:26px;color:#8c8c8c;display:none;z-index:99;background-color:white;}
 .inlif,.inlin{border-left:1px solid #8C8C8C;border-right:1px solid #8C8C8C;} .inlin{border-bottom:1px solid #8C8C8C;}
 .inright>li:hover{background-color:#8C8C8C;border:none;color:white;}
-.topc-bottom{padding:0px 50px;whidth:620px;height:100%;margin-bottom:6px;text-align:center;}
+.topc-bottom{padding:0px 50px;whidth:620px;margin-bottom:6px;text-align:center;}
 .topc-title{padding:6px 18px;font-size:14px;font-family:'微软雅黑';}
 .reviewed{width:600px;height:46px;padding:10px 20px;border-bottom:2px solid #F5F5F5;}
 .pull-left{font-size:16px;font-family:'微软雅黑';color:#c0c0c0;float:left;} .pull-left li>span{margin-left:16px;}
@@ -29,16 +29,33 @@
 .message-header>p:hover{cursor: pointer;}
 .cj_fbaio{width:600px;height:30px;padding:6px 50px;font-weight:bold;font-family:'微软雅黑';}
 .cj_form{width:600px;height:88px;padding:6px 50px;resize:none;}
-.cj_form>textarea{padding:3px 5px;}
+.cj_form>textarea{width:500px;padding:3px 5px;}
 .cj_button{width:600px;height:38px;padding:0px 50px;}
 .cj_button>span>i{color:#f0ad4e;margin-right:3px;line-height:24px;} .cj_button>span{text-align:center;line-height:24px;font-size:12px;font-family:'微软雅黑';display:block;float:left;}
 .cj_bttp{float:right;} .cj_butt{width:60px;height:26px;border-radius:6px;border:none;background-color:#f0ad4e;color:white;}
 .message-content{display:none;}
 
+/*评论部分的css*/
+.user-nodata{width:620px;height:403px;background-color:white;margin-left:auto;margin-right:auto;}
+.user-flaunt{width:620px;height:21px;text-align:center;font-size:18px;color:#ccc;line-height:403px;}
+.cj_talks{width:600px;}
+.cj_content{width:600px;height:100px;padding:0px 50px;}
+.cj_conleft{width:60px;height:60px;float:left;overflow:hidden}
+.cj_conright{width:430px;height:95px;float:left;overflow:hidden;}
+.user_name{height:20px;color:#f0ad4e;}
+.user_bb{height:40px;border:1px solid #8c8c8c;font: 14px;}
+.date_xx{height:20px;color:#8c8c8c;}
+.date_l{float:left;}
+.date_r{float:right;}
 
 
 
-
-
-
-
+/*连载中心*/
+.list{width:620px;height:100%;overflow:hidden;background-color:white;padding:10px 10px;border-bottom:16px solid #F3F3F3;margin-left:auto;margin-right:auto;border-bottom:6px solid #cc;}
+.list_left,.list_right{float:left;}
+.list_right{margin-left:16px;}
+.ttp{color:#D8003E;font-size:26px;}.num{color:#A58605;}
+.list_right{font-size:16px;font-family:'微软雅黑';font-weight:bold;}
+.imgmin{float:left;}
+.content{float:left;width:350px;heigh:80px;padding:6px 10px;}
+.content>img{padding:3px 3px;}

@@ -1,8 +1,8 @@
-@extends('bootmodel')
+@extends('/bootmodel')
 @section('head')
-    <link rel="stylesheet" href="/css/index.css">
-    <link rel="stylesheet" href="/css/addcomic.css">
-    <script src="/js/jquery-1.8.3.min.js"></script>
+    <link rel="stylesheet" href="{{url('/css/index.css')}}">
+    <link rel="stylesheet" href="{{url('/css/addcomic.css')}}">
+    <script src="{{url('/js/jquery-1.8.3.min.js')}}"></script>
     <script>
     $(function() {
     $('#top-ld').show().css({'left':'475px'});
@@ -12,7 +12,7 @@
     </script>
     @yield('addjs')
     {{--图片预览功能--}}
-    <script type="text/javascript" src="/js/jquery.uploadView.js"></script>
+    <script type="text/javascript" src="{{url('/js/jquery.uploadView.js')}}"></script>
     <script>
         $(".js_upFile").uploadView({
             uploadBox: '.js_uploadBox',//设置上传框容器

@@ -1,0 +1,22 @@
+.add-god{width:620px;height:100%;background-color:white;padding:20px;overflow: hidden;}
+.godtitle{text-align:center;font-size:22px;margin:20px 0px;font-weight:bold;font-family:'微软雅黑';}
+.goderror{color:#E22222;font-size:13px;margin-bottom:20px;}
+#total{width: 600px;height: 889px;padding: 10px 15px;margin-bottom: 10px;}
+#total h2{    padding: 8px 0;  font-size: 16px;  border-bottom: 1px solid #e3e3e3;}
+#totaltwo{width: 600px;height: 159px;padding: 10px 15px;margin-bottom: 10px;}
+#totaltwo h2{    padding: 8px 0;  font-size: 16px;}
+.rename{width: 250px;margin-top: 10px;}
+.rename p{text-align: left;margin-top: 10px;}
+.form-control{margin:6px;}
+.paper-left{float: left}
+.paper-txt{margin-left: 20px;}
+.paper-txtx{margin-bottom: 15px;}
+.myworks{background-color:#f2f2f2;border:1px solid #c0c0c0;}
+.bimg,.img{padding:3px 12px;line-height:16px;}
+.lired{color:red;font-family:'微软雅黑';padding:3px 10px;}
+.imgup{margin-top:20px;font-family:'微软雅黑';font-size:15px;padding:6px 2px;}
+.fileup{color:#c0c0c0;}
+.explain>ul>p{margin-top:20px;font-size:16px;font-weight:bold;padding:6px 2px;}
+.explain>li{height:20px;font-size:13px;}
+.submm{margin-top:20px;text-align:center;}
+.submm>input{background-color:#FEB833;border:none;width:82px;height:31px;border-radius:5px;color:white;font-weight:bold;}

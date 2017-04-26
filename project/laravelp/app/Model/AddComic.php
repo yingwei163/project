@@ -18,4 +18,14 @@ class AddComic extends Model
     protected $hidden = [
         'remember_token',
     ];
+
+    public function collect()
+    {
+        return $this->belongsTo('App\Model\Home\collect','id','works_id');
+    }
+    public function users()
+    {
+        return $this->belongsToMany('App\Model\Home\collect','message','id','works_id');
+    }
+
 }

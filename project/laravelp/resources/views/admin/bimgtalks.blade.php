@@ -1,0 +1,105 @@
+@extends('/admin/index')
+@section('leftbody')
+    <div class="span9">
+        <h1>
+            暴漫评论
+        </h1>
+        <table class="table table-bordered table-striped">
+            <thead>
+            <tr>
+                <th>
+                    评论ID
+                </th>
+                <th>
+                    标题
+                </th>
+                <th>
+                    作品
+                </th>
+                <th>
+                    作品格式
+                </th>
+                <th>
+                    作品制作时间
+                </th>
+                <th>
+                   评论内容
+                </th>
+                <th>
+                    评论时间
+                </th>
+                <th>
+                    操作
+                </th>
+            </tr>
+            </thead>
+            @if($bimg==0)
+                <tr>
+                    <td colspan="8">暂无作品</td>
+                </tr>
+            @else
+                @for($i=0;$i<count($bimg);$i++)
+                    <tr>
+                        <td>{{$bimg[$i]['id']}}</td>
+                        <td>{{$bimg[$i]['bimgb']}}</td>
+                        <td><img class="bimg-x" src="{{url($bimg[$i]['bimgx'])}}" alt=""></td>
+                        <td>暴漫</td>
+                        <td>{{$bimg[$i]['bimgt']}}</td>
+                        <td>{{$bimg[$i]['talk_txt']}}</td>
+                        <td>{{$bimg[$i]['created_at']}}</td>
+                        <td>
+                            <button class="delhot" style="background-color:#cd0200;border-radius:6px;color:#f5f8fa;border:none;" value="{{$bimg[$i]['id']}}">删除</button>
+                        </td>
+                    </tr>
+                @endfor
+             @endif
+        </table>
+    </div>
+@endsection
+@section('addjs')
+    <script>
+        $(function(){
+            //限制图片大小
+            $('.bimg-x').each(function(index){
+                $wd=$(this).width();$wh=$(this).height();
+                if($wd>$wh){
+                    $gd=80;
+                    $gh=$wh/$wd*80;
+                    $(this).width($gd);
+                    $(this).height($gh);
+                }else{
+                    $gh=80;
+                    $gd=$wd/$wh*80;
+                    $(this).width($gd);
+                    $(this).height($gh);
+                }
+            });
+
+            //删除热门作品
+            $('.delhot').each(function(index){
+                $(this).on('click',function(){
+                    $current=$(this).parent().parent();
+                    $id=($(this).val());
+                    $type=$(this).parent().prev().prev().html();
+                    $.ajax({
+                        url:'{{url('/admin/user/delbimgtalk')}}'+'/'+$id,
+                        type:'get',
+                        success:function(data){
+                            if(data){
+                                alert('删除~~');
+                                $current.remove();
+                            }else{
+                                alert('等级太低删不了！');
+                            }
+                        },
+                        error:function(){
+                            alert('键盘坏了删不了！');
+                        },
+
+                    })
+                });
+            });
+        });
+    </script>
+@endsection
+

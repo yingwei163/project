@@ -39,7 +39,7 @@ ul li{list-style: none;}
 .mid-img-font{ color: #fff;}
 .mid-img-ggt{border-radius: 5px;margin-bottom: 15px;}
 .falls-left{width:128px;height: 365px;float: left;}
-.falls-left ul{width: 126px;height: 211px;border:1px solid #e3e3e3;border-top: none;background-color: #ffffff;margin-top: -5px;}
+.falls-left ul{width: 126px;height:211px;border:1px solid #e3e3e3;border-top: none;background-color: #ffffff;margin-top: -5px;}
 .falls-left ul li{width: 114px;padding: 10px 0px 10px 12px;text-align: left;font-size: 16px;}
 .falls-midden{width:710px;height:1500px;margin-left: 20px;margin-right: 20px;float: left;position:relative;}
 .falls-midden-top{width:710px;height:35px;}
@@ -47,6 +47,10 @@ ul li{list-style: none;}
 .falls-hot a{color:#fff;padding-left: 20px;padding-right: 13px;font-size: 13px;}
 .falls-hott{border:1px solid #999;float:left;background-color: #ffffff;width:87px;height:33px;border-radius: 0px 5px 5px 0px;line-height: 33px;margin-right: 10px;}
 .falls-hott a{color:#333;padding-left: 20px;padding-right: 13px;font-size: 13px;}
+.falls-hot2{border:1px solid #999;float:left;background-color: #FFFFFF;width:87px;height:33px;border-radius: 5px 0px 0px 5px;line-height: 33px;}
+.falls-hot2 a{color:#333;padding-left: 20px;padding-right: 13px;font-size: 13px;}
+.falls-hott2{float:left;background-color: #333;width:87px;height:33px;border-radius: 0px 5px 5px 0px;line-height: 33px;margin-right: 10px;}
+.falls-hott2 a{color:#fff;padding-left: 20px;padding-right: 13px;font-size: 13px;}
 
 .fallsleftc{position:fixed;   top:50px;}
 #falls-mi-nav{float: right;height:33px;padding-left: 152px;}
@@ -104,6 +108,7 @@ ul li{list-style: none;}
 /*传剑加的css*/
 .jgzz{color:#F2FBF7;background-color:#CCCCCC;border-radius: 2px;width:50px;height:22px;line-height: 22px;padding-left: 5px;}
 .top-img-2{padding-left:110px;background-repeat:no-repeat;padding-top:20px;width:1500px;height: 130px;margin-left: auto;margin-right:auto;background-image: url('/images/dt2.png')}
+.top-img2{background-color: #FB6E52;}
 #bzjii{padding-right:5px;font-size:20px;color:#fea701;line-height:25px;text-align:right;width:140px;height:25px;border-radius: 50px;border:1px solid #fea701;float: right}
 .falls-midden-mid-con{width: 710px;padding: 15px 55px 15px 55px;}
 .sjk{width: 270px;height:50px;margin-top:10px;}/*border:solid 1px gray;*/
@@ -111,17 +116,33 @@ ul li{list-style: none;}
 .tp{width: 50px;height: 48px}
 .itp{width: 50px;height: 50px;float:left}
 .itt{width:72px;height: 50px;float:left;}/*72 21 72 16*/
-.ttt{width: 72px;height: 21px;font: left}
+.ttt{width: 72px;height: 21px;float: left;}
 #txt{margin:0px 0px 0px 5px;font-size: 5px;float: left}
 .tttt{margin:13px 0px 0px 5px;color: gray;float: left}/*100 45*/
 .rgz{width: 100px;height: 45px;float: right}
 .jgz1{color:#ffffff;background-color: #fea701;border-radius: 2px;width:50px;height:22px;line-height: 22px;padding-left: 5px;}
 .jgz2{color:#F2FBF7;background-color:#CCCCCC;border-radius: 2px;width:50px;height:22px;line-height: 22px;padding-left: 5px;}
 /*订阅*/
-#subscription{width: 710px;height: 220px;margin:0 auto;}
+#subscription{width:710px;height: 220px;margin:0 auto;border: 1px solid #eee;margin-bottom:20px;margin-top: 10px;border-radius: 5px;background-color: #fff;}
 #subscriptiontitle{width: 668px;height:21px;margin:20px 0px 0px 15px;float: left}
 #subscription_ntroduce{width:668px;height:142px;margin:20px 0px 0px 15px;float: left}
-#subscription_img{width: 142px;height: 142px;float: left;}
-#subscription_txt{width: 505px;height: 84px;float: left;}
-
+#subscription_img{width: 142px;height: 142px;float: left;border-radius: 5px;}
+#subscription_txt{width: 505px;height: 84px;float: left;margin-right: 20px;font-size: 20px;}
+.item{margin:auto;}
+.falls-midden-mid-titt{width:1000px;height:612px;padding:25px 50px 0px 50px;}
+#hui{float: left;margin-left: 20px;margin-top: 20px;width: 430px;height: 93px; padding: 20px;background-color: #f6f6f6;}
+#huii{float: left;width: 120px;height: 55px;border-right:1px dashed #000;}
+.falls-midden-midd{width:1000px;height:735px;margin-top: 10px;border:1px solid #e7e7e7;border-radius: 3px;}
+#hj{display: none}
+#hhhh{width: 200px;height: 55px;float:left;margin-left: 10px;}
+#lbt{height: 100px;width: 1200px;border-radius: 5px;}
+#lbtbox{width: 1200px;margin-bottom: 10px;border-radius: 5px;}
+.lbtboxx{width: 1200px;}
+.sb{ cursor: pointer}
 /*叶传剑*/
+#feedbackf{display: none}
+.feedback{position: fixed;bottom:100px;right: 0px;background-image: url("/images/feedback.png");  width:60px;height:60px;}
+.feedbackm{position: fixed;bottom:100px;right: 0px;background-image: url("/images/feedbackm.png");  width:60px;height:60px;}
+.feedbackd{width: 580px;height: 260px;border-radius: 5px;background-color: #fff;position:fixed;top:100px;left:335px;z-index:99999;padding: 20px;}
+#intell{width: 160px;height: 28px;margin-bottom: 10px;}
+#feedinfos{border-radius: 5px;resize: none;width: 540px;height: 114px;text-align: left;margin-bottom: 10px;}

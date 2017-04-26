@@ -4,16 +4,18 @@ namespace App\Http\Controllers\Home\User;
 use App\Http\Requests\Home\UserInfo;
 use App\Http\Requests\Home\UserLogin;
 use App\Http\Requests\Home\UserRegist;
-use App\model\advertising;
+use App\Model\advertising;
 use App\Model\attention;
 use App\Model\CUST;
 use App\Model\exhibitors;
-use App\model\home\Mytxt;
+use App\Model\Home\Mytxt;
 use App\Model\InforModel;
+use App\Model\link;
 use App\Model\sort;
 use App\Model\User;
 use App\Model\UserModel;
-use App\model\zan;
+use App\Model\zan;
+use App\Model\zzq;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -93,16 +95,21 @@ class home extends Controller
 
         if (empty($id)) {
             $sort=sort::all();
+            $zzq=zzq::all();
 
-
-            $result = mytxt::get();
+            $result = mytxt::where('auditto',1)->get();
             $b=advertising::get();
-            return view('home/user/txt')->with('comment', $result)->with('ad',$b)->with('sort',$sort);
+            return view('home/user/txt')->with('comment', $result)
+                ->with('ad',$b)->with('sort',$sort)->with('zzq',$zzq);
         } else {
-            $comment=mytxt::all();
+            $comment=mytxt::where('auditto',1)->get();
+//            dd($comment);
+
             $b=advertising::get();
+            $zzq=zzq::all();
             $sort=sort::all();
-            return view('home/user/txt', compact('comment'))->with('ad',$b)->with('sort',$sort);
+            return view('home/user/txt', compact('comment'))
+                ->with('ad',$b)->with('sort',$sort)->with('zzq',$zzq);
 
         }
     }
@@ -245,13 +252,18 @@ class home extends Controller
         $soft=sort::all();
         $ad=advertising::all();
         $advertsing=advertising::where('id',$id)->get();
+        $zzq=zzq::all();
+        $link=link::all();
         $a=exhibitors::where('eid',$id)->get()->toArray();
+
         $b=advertising::where('id',$id)->get()->toArray();
+
 //        $phone = exhibitors::find($id)->advertising;
-        $comment=exhibitors::leftjoin('advertising','exhibitors.eid','advertising.id')->get();
+        $comment=exhibitors::join('advertising','exhibitors.eid','advertising.id')->
+            where('eid',$id)->get();
 //        dd($comment);
         return view('home/user/dingyue')->with('sort',$soft)->with('advertsing',$advertsing)->with('comment',$comment)
-            ->with('ad',$ad);
+            ->with('ad',$ad)->with('zzq',$zzq)->with('link',$link);
     }
 
 
@@ -272,5 +284,13 @@ class home extends Controller
 
     }
 
-
+//全部作者
+public function author(){
+//            $comm=Mytxt::select('userid','name','icon')->distinct()
+//                ->get();
+    $comm=Mytxt::select('userid','name','icon')->distinct()
+               ->get();
+    $sort=sort::all();
+        return view('/home/user/author',compact('sort'))->with('comment',$comm);
+}
 }

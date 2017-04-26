@@ -1,9 +1,9 @@
-@extends('master')
+@extends('/master')
 @section('head')
-    <link rel="stylesheet" href="/css/index.css">
-    <link rel="stylesheet" href="/css/y-index.css">
-    <link rel="stylesheet" href="/css/video.css">
-    <script src="/js/jquery-1.8.3.min.js"></script>
+    <link rel="stylesheet" href="{{url('/css/index.css')}}">
+    <link rel="stylesheet" href="{{url('/css/y-index.css')}}">
+    <link rel="stylesheet" href="{{url('/css/video.css')}}">
+    <script src="{{url('/js/jquery-1.8.3.min.js')}}"></script>
 
     <script>
     $('#svi').click(function(){

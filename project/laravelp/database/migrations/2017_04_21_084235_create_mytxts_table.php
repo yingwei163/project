@@ -31,7 +31,7 @@ class CreateMytxtsTable extends Migration
             //发布用户名
             $table->string('name');
             //发布用户头像
-            $table->string('userimg');
+            $table->string('icon');
         });
     }
 

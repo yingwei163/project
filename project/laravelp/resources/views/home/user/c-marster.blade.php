@@ -1,8 +1,8 @@
-@extends('master')
+@extends('/master')
 @section('head')
-    <link rel="stylesheet" href="/css/item_cj.css">
-    <link rel="stylesheet" href="/css/item_index.css">
-    <script src="/js/jquery-1.8.3.min.js"></script>
+    <link rel="stylesheet" href="{{url('/css/item_cj.css')}}">
+    <link rel="stylesheet" href="{{url('/css/item_index.css')}}">
+    <script src="{{url('/js/jquery-1.8.3.min.js')}}"></script>
     <script>
         $(function() {
                 $('#topnav').addClass('navbar-fixed-top');
@@ -62,16 +62,16 @@
        <div class="wrapper-left">
           <ul class="wLeft-list  clearfix">
               <li>
-                  <a href="###"><span class="glyphicon glyphicon-thumbs-up"></span> 我的神作</a>
+                  <a href="{{url('/home/user/mygod')}}"><span class="glyphicon glyphicon-thumbs-up"></span> 我的神作</a>
               </li>
               <li>
                   <a href="###"><span class="glyphicon glyphicon-heart"></span> 关注神作</a>
               </li>
               <li>
-                  <a href="###"><span class="glyphicon glyphicon-comment"></span> 评论</a>
+                  <a href="{{url('/home/user/mytalks')}}"><span class="glyphicon glyphicon-comment"></span> 评论</a>
               </li>
               <li>
-                  <a href="###"><span class="glyphicon glyphicon-send"></span> 小纸条</a>
+                  <a href="{{url('/home/user/paper')}}"><span class="glyphicon glyphicon-send"></span> 小纸条</a>
               </li>
               <li>
                   <a href="###"><span class="glyphicon glyphicon-user"></span> 关注/粉丝</a>
@@ -83,10 +83,10 @@
                   <a href="###"><span class="glyphicon glyphicon-refresh"></span> 订阅更新</a>
               </li>
               <li>
-                  <a href="/home/user/usercon"><span class="glyphicon glyphicon-cog"></span> 帐号设置</a>
+                  <a href="{{url('/home/user/usercon')}}"><span class="glyphicon glyphicon-cog"></span> 帐号设置</a>
               </li>
               <li>
-                  <a href="###"><span class="glyphicon glyphicon-picture"></span> 表情组</a>
+                  <a href="{{url('/home/user/mypublish')}}"><span class="glyphicon glyphicon-picture"></span> 我的连载</a>
               </li>
           </ul>
        </div>

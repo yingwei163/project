@@ -28,10 +28,7 @@ class CreateMyimgTable extends Migration
             $table->string('imgb');
             //文本上传时间
             $table->string('imgt');
-            //发布用户名
-            $table->string('name');
-            //发布用户头像
-            $table->string('userimg');
+
         });
     }
 

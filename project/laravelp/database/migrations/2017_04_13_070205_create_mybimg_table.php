@@ -29,10 +29,7 @@ class CreateMybimgTable extends Migration
             $table->string('bimgb');
             //文本上传时间
             $table->string('bimgt');
-            //发布用户名
-            $table->string('name');
-            //发布用户头像
-            $table->string('userimg');
+
         });
     }
 
